@@ -1,0 +1,53 @@
+{
+    "variables": [
+        {
+            "default": "https://meet.example.com",
+            "description": "The public domain or IP address where Jitsi Meet will be accessible.",
+            "id": "JITSI_PUBLIC_URL",
+            "label": "Public URL",
+            "type": "string"
+        },
+        {
+            "default": "8000",
+            "description": "Host port for HTTP traffic.",
+            "id": "JITSI_HTTP_PORT",
+            "label": "Web HTTP Port",
+            "type": "port"
+        },
+        {
+            "default": "8443",
+            "description": "Host port for HTTPS traffic.",
+            "id": "JITSI_HTTPS_PORT",
+            "label": "Web HTTPS Port",
+            "type": "port"
+        },
+        {
+            "default": "10000",
+            "description": "The UDP port for media streaming routing (essential for audio/video connectivity).",
+            "id": "JITSI_JVB_PORT",
+            "label": "Media JVB Port (UDP)",
+            "type": "port"
+        },
+        {
+            "default": "change_me_jicofo",
+            "description": "Secure password for internal signaling. CHANGE THIS!",
+            "id": "JICOFO_AUTH_PASSWORD",
+            "label": "Jicofo Auth Password",
+            "type": "password"
+        },
+        {
+            "default": "change_me_jvb",
+            "description": "Secure password for internal media bridge authentication. CHANGE THIS!",
+            "id": "JVB_AUTH_PASSWORD",
+            "label": "JVB Auth Password",
+            "type": "password"
+        },
+        {
+            "default": "change_me_secret",
+            "description": "Secure component secret for XMPP server authentication. CHANGE THIS!",
+            "id": "JICOFO_COMPONENT_SECRET",
+            "label": "Jicofo Component Secret",
+            "type": "password"
+        }
+    ]
+}
