@@ -61,7 +61,8 @@
             "Chat/Messaging",
             "Chat",
             "Communication",
-            "Messaging"
+            "Messaging",
+            "Communications"
         ],
         "group_rules": {
             "Chat": {
@@ -75,6 +76,10 @@
             "Communication": {
                 "is_exclusive": false,
                 "name": "Communication"
+            },
+            "Communications": {
+                "is_exclusive": false,
+                "name": "Communications"
             },
             "Home Automation": {
                 "is_exclusive": false,
