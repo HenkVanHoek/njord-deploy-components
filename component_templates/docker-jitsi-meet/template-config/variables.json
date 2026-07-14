@@ -29,25 +29,46 @@
             "type": "port"
         },
         {
-            "default": "change_me_jicofo",
-            "description": "Secure password for internal signaling. CHANGE THIS!",
+            "default": "changeme",
+            "description": "Secure password for internal signaling.",
             "id": "JICOFO_AUTH_PASSWORD",
             "label": "Jicofo Auth Password",
             "type": "password"
         },
         {
-            "default": "change_me_jvb",
-            "description": "Secure password for internal media bridge authentication. CHANGE THIS!",
+            "default": "changeme",
+            "description": "Secure password for internal media bridge authentication.",
             "id": "JVB_AUTH_PASSWORD",
             "label": "JVB Auth Password",
             "type": "password"
         },
         {
-            "default": "change_me_secret",
-            "description": "Secure component secret for XMPP server authentication. CHANGE THIS!",
+            "default": "changeme",
+            "description": "Secure component secret for XMPP server authentication.",
             "id": "JICOFO_COMPONENT_SECRET",
             "label": "Jicofo Component Secret",
             "type": "password"
+        },
+        {
+            "default": "false",
+            "description": "If enabled, only registered users can create rooms. Guests can join without credentials.",
+            "id": "JITSI_ENABLE_AUTH",
+            "label": "Enable Room Authentication",
+            "type": "boolean"
+        },
+        {
+            "default": "false",
+            "description": "Enables collaborative real-time document editing during meetings.",
+            "id": "JITSI_ENABLE_ETHERPAD",
+            "label": "Enable Etherpad",
+            "type": "boolean"
+        },
+        {
+            "default": "false",
+            "description": "Enables call recording and streaming via Jibri. Increases CPU/RAM load.",
+            "id": "JITSI_ENABLE_RECORDING",
+            "label": "Enable Session Recording",
+            "type": "boolean"
         }
     ]
 }

@@ -1144,13 +1144,21 @@
         "docker-jitsi-meet": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Jitsi Meet is a collection of Open-Source projects that provides a secure, simple, and scalable video conferencing solution. It is designed for privacy-focused real-time communication.",
+            "description": "Jitsi Meet is a collection of open-source projects that provides a secure, simple, and scalable video conferencing solution. This component sets up a complete Jitsi Meet instance with optional Etherpad collaboration and recording capabilities.",
             "docker_service_name": "web",
             "group": "Communications",
             "has_configuration": true,
             "has_ui": true,
-            "image_name": "jitsi/docker-jitsi-meet",
+            "image_name": "jitsi/web",
             "name": "jitsi-meet",
+            "resource_profile": {
+                "cpu": "high",
+                "ram": "high",
+                "recommended_cores": 4,
+                "recommended_ram_mb": 8192,
+                "recommended_storage_gb": 40,
+                "storage_type": "persistent"
+            },
             "tags": [
                 "video",
                 "chat",

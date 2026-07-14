@@ -1,12 +1,11 @@
 # status: beta
 # last_tested_version: stable
-# platform_notes: ARMv7 and ARM64 compatible. Requires adequate resources for video conferencing.
+# platform_notes: none
 # breaking_changes: none
 services:
   prosody:
-    image: jitsi/prosody:stable
     container_name: piselfhosting-jitsi-prosody
-    restart: unless-stopped
+    image: jitsi/prosody:stable
     networks:
       - piselfhosting_net
     volumes:
@@ -22,14 +21,17 @@ services:
       - JVB_AUTH_USER=jvb
       - JVB_AUTH_PASSWORD={{ JVB_AUTH_PASSWORD }}
       - JICOFO_COMPONENT_SECRET={{ JICOFO_COMPONENT_SECRET }}
-      - JIGASI_XMPP_USER=jigasi
-      - JIGASI_XMPP_PASSWORD=jigasi_pass
-      - JIBRI_XMPP_USER=jibri
-      - JIBRI_XMPP_PASSWORD=jibri_pass
+      - PUBLIC_URL={{ JITSI_PUBLIC_URL }}
+      - JVB_PORT={{ JITSI_JVB_PORT }}
+{% if JITSI_ENABLE_AUTH %}
+      - ENABLE_AUTH=1
+      - ENABLE_GUEST_IS_GUEST=1
+      - AUTH_TYPE=internal
+{% endif %}
+
   jicofo:
-    image: jitsi/jicofo:stable
     container_name: piselfhosting-jitsi-jicofo
-    restart: unless-stopped
+    image: jitsi/jicofo:stable
     networks:
       - piselfhosting_net
     volumes:
@@ -44,12 +46,16 @@ services:
       - JVB_AUTH_USER=jvb
       - JVB_AUTH_PASSWORD={{ JVB_AUTH_PASSWORD }}
       - JICOFO_COMPONENT_SECRET={{ JICOFO_COMPONENT_SECRET }}
-    depends_on:
-      - prosody
+      - PUBLIC_URL={{ JITSI_PUBLIC_URL }}
+      - JVB_PORT={{ JITSI_JVB_PORT }}
+{% if JITSI_ENABLE_AUTH %}
+      - ENABLE_AUTH=1
+      - ENABLE_GUEST_IS_GUEST=1
+{% endif %}
+
   jvb:
-    image: jitsi/jvb:stable
     container_name: piselfhosting-jitsi-jvb
-    restart: unless-stopped
+    image: jitsi/jvb:stable
     networks:
       - piselfhosting_net
     ports:
@@ -61,19 +67,18 @@ services:
       - XMPP_SERVER=prosody
       - XMPP_DOMAIN=meet.jitsi
       - XMPP_AUTH_DOMAIN=auth.meet.jitsi
+      - XMPP_INTERNAL_MUC_DOMAIN=internal-muc.meet.jitsi
+      - JICOFO_AUTH_USER=jicofo
+      - JICOFO_AUTH_PASSWORD={{ JICOFO_AUTH_PASSWORD }}
       - JVB_AUTH_USER=jvb
       - JVB_AUTH_PASSWORD={{ JVB_AUTH_PASSWORD }}
+      - JICOFO_COMPONENT_SECRET={{ JICOFO_COMPONENT_SECRET }}
+      - PUBLIC_URL={{ JITSI_PUBLIC_URL }}
       - JVB_PORT={{ JITSI_JVB_PORT }}
-      - JVB_TCP_PORT=3030
-      - JVB_STUN_SERVERS=stun.l.google.com:19302,stun1.l.google.com:19302,stun2.l.google.com:19302
-      - JVB_TOS=16
-      - DOCKER_HOST_ADDRESS={{ JITSI_PUBLIC_URL }}
-    depends_on:
-      - prosody
+
   web:
-    image: jitsi/web:stable
     container_name: piselfhosting-jitsi-web
-    restart: unless-stopped
+    image: jitsi/web:stable
     networks:
       - piselfhosting_net
     ports:
@@ -84,15 +89,56 @@ services:
     environment:
       - XMPP_SERVER=prosody
       - XMPP_DOMAIN=meet.jitsi
-      - JICOFO_AUTH_DOMAIN=auth.meet.jitsi
+      - XMPP_AUTH_DOMAIN=auth.meet.jitsi
+      - XMPP_INTERNAL_MUC_DOMAIN=internal-muc.meet.jitsi
+      - JICOFO_AUTH_USER=jicofo
+      - JICOFO_AUTH_PASSWORD={{ JICOFO_AUTH_PASSWORD }}
+      - JVB_AUTH_USER=jvb
+      - JVB_AUTH_PASSWORD={{ JVB_AUTH_PASSWORD }}
+      - JICOFO_COMPONENT_SECRET={{ JICOFO_COMPONENT_SECRET }}
       - PUBLIC_URL={{ JITSI_PUBLIC_URL }}
       - JVB_PORT={{ JITSI_JVB_PORT }}
-      - ENABLE_HTTP_REDIRECT=1
-      - TZ=Europe/London
-    depends_on:
-      - prosody
-      - jicofo
-      - jvb
+{% if JITSI_ENABLE_AUTH %}
+      - ENABLE_AUTH=1
+      - ENABLE_GUEST_IS_GUEST=1
+      - AUTH_TYPE=internal
+{% endif %}
+{% if JITSI_ENABLE_ETHERPAD %}
+      - ETHERPAD_PUBLIC_URL={{ JITSI_PUBLIC_URL }}/etherpad
+{% endif %}
+
+{% if JITSI_ENABLE_ETHERPAD %}
+  etherpad:
+    container_name: piselfhosting-jitsi-etherpad
+    image: etherpad/etherpad:latest
+    networks:
+      - piselfhosting_net
+    volumes:
+      - "{{ DATA_ROOT }}/jitsi/etherpad:/opt/etherpad-lite/var"
+{% endif %}
+
+{% if JITSI_ENABLE_RECORDING %}
+  jibri:
+    container_name: piselfhosting-jitsi-jibri
+    image: jitsi/jibri:stable
+    networks:
+      - piselfhosting_net
+    volumes:
+      - "{{ DATA_ROOT }}/jitsi/jibri:/config"
+    environment:
+      - XMPP_SERVER=prosody
+      - XMPP_DOMAIN=meet.jitsi
+      - XMPP_AUTH_DOMAIN=auth.meet.jitsi
+      - XMPP_INTERNAL_MUC_DOMAIN=internal-muc.meet.jitsi
+      - JICOFO_AUTH_USER=jicofo
+      - JICOFO_AUTH_PASSWORD={{ JICOFO_AUTH_PASSWORD }}
+      - JVB_AUTH_USER=jvb
+      - JVB_AUTH_PASSWORD={{ JVB_AUTH_PASSWORD }}
+      - JICOFO_COMPONENT_SECRET={{ JICOFO_COMPONENT_SECRET }}
+      - PUBLIC_URL={{ JITSI_PUBLIC_URL }}
+      - JVB_PORT={{ JITSI_JVB_PORT }}
+{% endif %}
+
 networks:
   piselfhosting_net:
     external: true
