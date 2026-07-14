@@ -6,7 +6,7 @@
 services:
   nextcloud:
     image: nextcloud:{{ component_version }}
-    container_name: piselfhosting-nextcloud
+    container_name: njorddeploy-nextcloud
     restart: unless-stopped
     ports:
       - "8081:80"
@@ -15,7 +15,7 @@ services:
       - nextcloud_config:/var/www/html/config
     environment:
       - MYSQL_HOST=mariadb
-      - MYSQL_DATABASE=piselfhosting
+      - MYSQL_DATABASE=njorddeploy
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
       - NEXTCLOUD_ADMIN_USER=${NC_ADMIN_USER}
@@ -23,14 +23,14 @@ services:
     depends_on:
       - mariadb
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 volumes:
   nextcloud_data:
-    name: piselfhosting-nextcloud-data
+    name: njorddeploy-nextcloud-data
   nextcloud_config:
-    name: piselfhosting-nextcloud-config
+    name: njorddeploy-nextcloud-config
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

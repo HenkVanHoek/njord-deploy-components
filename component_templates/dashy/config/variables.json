@@ -25,7 +25,7 @@
     "name": "Data Root Directory",
     "description": "The absolute path on the host where persistent data will be stored.",
     "type": "string",
-    "default": "/srv/piselfhosting"
+    "default": "/srv/njorddeploy"
   },
   {
     "id": "PUID",

@@ -6,7 +6,7 @@
 services:
   gitlab:
     image: 'gitlab/gitlab-ce:{{ component_version }}' # 'ce' stands for Community Edition, the free version.
-    container_name: piselfhosting-gitlab
+    container_name: njorddeploy-gitlab
     restart: unless-stopped
     hostname: '{{ DOMAIN }}' # GitLab needs a hostname to configure itself correctly.
     environment:
@@ -24,8 +24,8 @@ services:
       - '{{ DATA_ROOT }}/gitlab/data:/var/opt/gitlab'
     shm_size: '256m' # Recommended to prevent issues with the built-in PostgreSQL.
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

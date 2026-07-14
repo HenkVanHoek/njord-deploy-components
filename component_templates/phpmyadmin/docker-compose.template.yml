@@ -6,7 +6,7 @@
 services:
   phpmyadmin:
     image: arm64v8/phpmyadmin:{{ component_version }}
-    container_name: piselfhosting-phpmyadmin
+    container_name: njorddeploy-phpmyadmin
     restart: unless-stopped
     environment:
       PMA_HOST: mariadb # Hostname of the MariaDB service
@@ -21,7 +21,7 @@ services:
     volumes:
       - "{{DATA_ROOT}}/phpmyadmin/config/config.inc.php:/etc/phpmyadmin/config.inc.php" # Mount the specific config file, FHS compliant
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

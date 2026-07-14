@@ -5,7 +5,7 @@
 services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:{{ component_version }}
-    container_name: piselfhosting-sabnzbd
+    container_name: njorddeploy-sabnzbd
     restart: unless-stopped
     environment:
       - "PUID={{ PUID | default('1000') }}"
@@ -20,8 +20,8 @@ services:
     ports:
       - "{{ SABNZBD_WEB_PORT | default('8086') }}:8080"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   web-notepad:
-    container_name: piselfhosting-web-notepad
+    container_name: njorddeploy-web-notepad
     image: pajikos/minimalist-web-notepad:{{ component_version }}
     restart: unless-stopped
     ports:
@@ -13,8 +13,8 @@ services:
       - "{{DATA_ROOT}}/web-notepad/storage:/var/www/html/_storage"
     # This simple image does not need PUID/PGID or extra_hosts
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

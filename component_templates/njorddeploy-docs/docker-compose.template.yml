@@ -2,18 +2,18 @@
 # last_tested_version: "none"
 # platform_notes: "None"
 # breaking_changes: "None"
-# templates/piselfhosting-docs/docker-compose.template.yml
+# templates/njorddeploy-docs/docker-compose.template.yml
 services:
-  piselfhosting-docs:
+  njorddeploy-docs:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: piselfhosting-docs
+    container_name: njorddeploy-docs
     restart: unless-stopped
     ports:
       - "8089:80" # Expose documentation on port 8089
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

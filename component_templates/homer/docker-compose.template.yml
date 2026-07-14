@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   homer:
-    container_name: piselfhosting-homer
+    container_name: njorddeploy-homer
     image: bcpierce/homer:{{ component_version }}
     restart: unless-stopped
     ports:
@@ -13,8 +13,8 @@ services:
       - "{{DATA_ROOT}}/homer/assets:/www/assets"
     # Homer is simple and does not need PUID/PGID/TZ
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

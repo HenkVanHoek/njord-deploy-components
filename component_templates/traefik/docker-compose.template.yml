@@ -6,7 +6,7 @@
 services:
   traefik-init:
     image: busybox:1.36
-    container_name: piselfhosting-traefik-init
+    container_name: njorddeploy-traefik-init
     restart: "no"
     volumes:
       - "{{ TRAEFIK_ACME_STORAGE_PATH }}:/etc/traefik/acme"
@@ -17,7 +17,7 @@ services:
 
   traefik:
     image: traefik:latest
-    container_name: piselfhosting-traefik
+    container_name: njorddeploy-traefik
     restart: unless-stopped
     depends_on:
       traefik-init:
@@ -55,7 +55,7 @@ services:
       {%- endif %}
 
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
     labels:
       - "traefik.enable=true"

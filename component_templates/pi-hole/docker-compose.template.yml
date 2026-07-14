@@ -5,7 +5,7 @@
 # file: component_templates/pi-hole/docker-compose.template.yml
 services:
   pi-hole:
-  container_name: piselfhosting-{{ component_id }}
+  container_name: njorddeploy-{{ component_id }}
   image: pihole/pihole:latest
     restart: unless-stopped
     ports:
@@ -23,13 +23,13 @@ services:
     cap_add:
       - NET_ADMIN
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 volumes:
   pihole_etc:
-    name: "piselfhosting-pihole-etc"
+    name: "njorddeploy-pihole-etc"
   pihole_dnsmasq:
-    name: "piselfhosting-pihole-dnsmasq"
+    name: "njorddeploy-pihole-dnsmasq"
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

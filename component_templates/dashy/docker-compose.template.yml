@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   dashy:
-    container_name: piselfhosting-dashy
+    container_name: njorddeploy-dashy
     image: lissy93/dashy:{{ DASHY_IMAGE_TAG | default('latest') }}
     restart: unless-stopped
     ports:
@@ -21,7 +21,7 @@ services:
       - "TZ={{ TZ | default('Europe/Amsterdam') }}"
       - NODE_ENV=production
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

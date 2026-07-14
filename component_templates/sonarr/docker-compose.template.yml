@@ -5,7 +5,7 @@
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:{{ component_version }}
-    container_name: piselfhosting-sonarr
+    container_name: njorddeploy-sonarr
     restart: unless-stopped
     environment:
       - "PUID={{ PUID | default('1000') }}"
@@ -20,8 +20,8 @@ services:
     ports:
       - "{{ SONARR_WEB_PORT | default('8989') }}:8989"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

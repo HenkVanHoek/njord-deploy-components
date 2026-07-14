@@ -8,7 +8,7 @@
             "type": "port"
         },
         {
-            "default": "/var/lib/piselfhosting",
+            "default": "/var/lib/njorddeploy",
             "description": "The base directory for all persistent data. This component does not directly use it for volumes but it is a standard variable.",
             "id": "DATA_ROOT",
             "label": "Data Root Directory",

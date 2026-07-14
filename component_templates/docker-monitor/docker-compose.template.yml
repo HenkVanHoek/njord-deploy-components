@@ -5,7 +5,7 @@
 # templates/docker-monitor/docker-compose.template.yml
 services:
   docker-monitor:
-    container_name: piselfhosting-docker-monitor
+    container_name: njorddeploy-docker-monitor
     image: nginx:alpine
     restart: unless-stopped
     volumes:
@@ -13,7 +13,7 @@ services:
     ports:
       - "8088:80"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

@@ -17,4 +17,4 @@ services:
             - {{ CONFIG_BASE_PATH }}/npm/data:/data
             - {{ CONFIG_BASE_PATH }}/npm/letsencrypt:/etc/letsencrypt
      networks:
-            - piselfhosting_net
+            - njorddeploy_net

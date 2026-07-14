@@ -4,10 +4,10 @@
 # breaking_changes: none
 services:
   prosody:
-    container_name: piselfhosting-jitsi-prosody
+    container_name: njorddeploy-jitsi-prosody
     image: jitsi/prosody:stable
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     volumes:
       - "{{ DATA_ROOT }}/jitsi/prosody/config:/config"
       - "{{ DATA_ROOT }}/jitsi/prosody/plugins:/prosody-plugins-custom"
@@ -30,10 +30,10 @@ services:
 {% endif %}
 
   jicofo:
-    container_name: piselfhosting-jitsi-jicofo
+    container_name: njorddeploy-jitsi-jicofo
     image: jitsi/jicofo:stable
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     volumes:
       - "{{ DATA_ROOT }}/jitsi/jicofo:/config"
     environment:
@@ -54,10 +54,10 @@ services:
 {% endif %}
 
   jvb:
-    container_name: piselfhosting-jitsi-jvb
+    container_name: njorddeploy-jitsi-jvb
     image: jitsi/jvb:stable
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     ports:
       - "{{ JITSI_JVB_PORT }}:10000/udp"
       - "3030:3030/tcp"
@@ -77,10 +77,10 @@ services:
       - JVB_PORT={{ JITSI_JVB_PORT }}
 
   web:
-    container_name: piselfhosting-jitsi-web
+    container_name: njorddeploy-jitsi-web
     image: jitsi/web:stable
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     ports:
       - "{{ JITSI_HTTP_PORT }}:80"
       - "{{ JITSI_HTTPS_PORT }}:443"
@@ -109,20 +109,20 @@ services:
 
 {% if JITSI_ENABLE_ETHERPAD %}
   etherpad:
-    container_name: piselfhosting-jitsi-etherpad
+    container_name: njorddeploy-jitsi-etherpad
     image: etherpad/etherpad:latest
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     volumes:
       - "{{ DATA_ROOT }}/jitsi/etherpad:/opt/etherpad-lite/var"
 {% endif %}
 
 {% if JITSI_ENABLE_RECORDING %}
   jibri:
-    container_name: piselfhosting-jitsi-jibri
+    container_name: njorddeploy-jitsi-jibri
     image: jitsi/jibri:stable
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
     volumes:
       - "{{ DATA_ROOT }}/jitsi/jibri:/config"
     environment:
@@ -140,5 +140,5 @@ services:
 {% endif %}
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

@@ -5,7 +5,7 @@
 services:
   radarr:
     image: lscr.io/linuxserver/radarr:{{ component_version }}
-    container_name: piselfhosting-radarr
+    container_name: njorddeploy-radarr
     restart: unless-stopped
     environment:
       - "PUID={{ PUID | default('1000') }}"
@@ -20,8 +20,8 @@ services:
     ports:
       - "{{ RADARR_WEB_PORT | default('7878') }}:7878"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

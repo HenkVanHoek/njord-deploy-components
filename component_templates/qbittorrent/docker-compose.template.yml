@@ -5,7 +5,7 @@
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:{{ component_version }}
-    container_name: piselfhosting-qbittorrent
+    container_name: njorddeploy-qbittorrent
     restart: unless-stopped
     environment:
       - "PUID={{ PUID | default('1000') }}"
@@ -22,8 +22,8 @@ services:
       - "6881:6881"
       - "6881:6881/udp"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

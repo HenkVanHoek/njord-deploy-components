@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   organizr:
-    container_name: piselfhosting-organizr
+    container_name: njorddeploy-organizr
     image: lscr.io/linuxserver/organizr:{{ component_version }}
     restart: unless-stopped
     ports:
@@ -16,8 +16,8 @@ services:
       - "PGID={{PGID}}"
       - "TZ={{TZ}}"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

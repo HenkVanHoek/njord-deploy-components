@@ -17,8 +17,8 @@ services:
     ports:
       - "{{ FILEBROWSER_WEB_PORT }}:80"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

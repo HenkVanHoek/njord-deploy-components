@@ -16,8 +16,8 @@ services:
       - "{{ DATA_ROOT }}/caddy/data:/data"
       - "{{ DATA_ROOT }}/caddy/config:/config"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

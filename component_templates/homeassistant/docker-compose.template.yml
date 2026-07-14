@@ -5,7 +5,7 @@
 # templates/homeassistant/docker-compose.template.yml
 services:
   homeassistant:
-    container_name: piselfhosting-homeassistant
+    container_name: njorddeploy-homeassistant
     image: ghcr.io/home-assistant/home-assistant:{{ component_version }}
     restart: unless-stopped
     volumes:
@@ -15,8 +15,8 @@ services:
 
 volumes:
   homeassistant_config:
-    name: piselfhosting-homeassistant-config
+    name: njorddeploy-homeassistant-config
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

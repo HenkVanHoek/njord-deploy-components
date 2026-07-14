@@ -5,7 +5,7 @@
 services:
   adguard-home:
     image: adguard/adguardhome:{{ component_version }}
-    container_name: piselfhosting-adguard-home
+    container_name: njorddeploy-adguard-home
     restart: unless-stopped
     ports:
       - "53:53/tcp"
@@ -17,8 +17,8 @@ services:
       - "{{DATA_ROOT}}/adguard-home/work:/opt/adguardhome/work"
       - "{{DATA_ROOT}}/adguard-home/config:/opt/adguardhome/conf"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

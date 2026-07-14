@@ -141,7 +141,7 @@ async def discover_onvif_cameras():
 
 
 async def main():
-    print("\n--- Starting PiSelfhosting Autonomous Frigate Configurator ---")
+    print("\n--- Starting NjordDeploy Autonomous Frigate Configurator ---")
 
     discovered = await discover_onvif_cameras()
     all_camera_configs_to_add = {}

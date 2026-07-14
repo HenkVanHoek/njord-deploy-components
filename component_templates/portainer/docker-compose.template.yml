@@ -6,7 +6,7 @@ services:
   portainer:
     # --- DEFINITIVE FIX: Rely on the context for the version tag ---
     image: portainer/portainer-ce:lts
-    container_name: piselfhosting-portainer
+    container_name: njorddeploy-portainer
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -16,12 +16,12 @@ services:
       - "{{ PORTAINER_WEB_PORT }}:9443"
       - "{{ PORTAINER_EDGE_PORT }}:8000"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 volumes:
   portainer_data:
-    name: piselfhosting-portainer-data
+    name: njorddeploy-portainer-data
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

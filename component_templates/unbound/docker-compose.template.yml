@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   unbound:
-    container_name: piselfhosting-unbound
+    container_name: njorddeploy-unbound
     image: mvance/unbound:{{ component_version }}
     restart: unless-stopped
     ports:
@@ -15,8 +15,8 @@ services:
       - "{{DATA_ROOT}}/unbound/config/unbound.conf:/opt/unbound/etc/unbound/unbound.conf"
     # Unbound does not need PUID/PGID or extra_hosts
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

@@ -1,5 +1,5 @@
 {
-    "_piselfhosting": {
+    "_njorddeploy": {
         "components_order": [
             "adguard-home",
             "pi-hole",
@@ -30,7 +30,7 @@
             "notify-push",
             "nginx-proxy-manager",
             "traefik",
-            "piselfhosting-service-maintenance",
+            "njorddeploy-service-maintenance",
             "portainer",
             "uptime-kuma",
             "unbound",
@@ -663,7 +663,7 @@
             "traefik_internal_port": 80,
             "ui_port_variable": "PIHOLE_WEB_PORT"
         },
-        "piselfhosting-service-maintenance": {
+        "njorddeploy-service-maintenance": {
             "component_version": "0.1.0",
             "conflicts_with": [],
             "default": false,
@@ -673,11 +673,11 @@
             "has_configuration": false,
             "has_traefik_support": false,
             "has_ui": true,
-            "image_name": "henkvanhoek/piselfhosting-service-maintenance",
+            "image_name": "henkvanhoek/njorddeploy-service-maintenance",
             "intent_questions": [],
             "name": "Service Maintenance",
             "package_id": null,
-            "project_url": "https://github.com/HenkVanHoek/PiSelfhosting",
+            "project_url": "https://github.com/HenkVanHoek/NjordDeploy",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
@@ -688,12 +688,12 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null,
-            "ui_port_variable": "PISELFHOSTING_SERVICE_MAINTENANCE_WEB_PORT"
+            "ui_port_variable": "NJORDDEPLOY_SERVICE_MAINTENANCE_WEB_PORT"
         },
         "pish-fluffychat-web": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A modern, cute, and cross-platform Matrix client web interface, packaged as a PiSelfhosting component.",
+            "description": "A modern, cute, and cross-platform Matrix client web interface, packaged as a NjordDeploy component.",
             "docker_service_name": "fluffychat-web",
             "group": "Messaging",
             "has_configuration": true,
@@ -712,7 +712,7 @@
                     "type": "port"
                 },
                 {
-                    "default": "/var/lib/piselfhosting",
+                    "default": "/var/lib/njorddeploy",
                     "description": "The base directory for all persistent data. This component does not directly use it for volumes but it is a standard variable.",
                     "id": "DATA_ROOT",
                     "label": "Data Root Directory",
@@ -748,7 +748,7 @@
                     "type": "port"
                 },
                 {
-                    "default": "/var/lib/piselfhosting",
+                    "default": "/var/lib/njorddeploy",
                     "description": "The base directory for all persistent data. This component does not directly use it for volumes but it is a standard variable.",
                     "id": "DATA_ROOT",
                     "label": "Data Root Directory",
@@ -794,7 +794,7 @@
         "prosody": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Prosody is a modern, lightweight XMPP (Jabber) communication server designed for efficiency and extensibility.\n\nWithin the PiSelfhosting ecosystem, this component provides a private and secure instant messaging platform. It allows users to host their own chat services, including:\n\nOne-to-one messaging: Secure, real-time private conversations.\n\nMulti-User Chat (MUC): Group chat capabilities for family or teams.\n\nHTTP File Upload: Seamless sharing of photos and files directly from your own hardware.\n\nModern Security: Automated TLS encryption using Let's Encrypt certificates via Nginx Proxy Manager.\n\nNote: This service requires port 5222 (client-to-server) and 5269 (server-to-server) to be forwarded in your router for external access.",
+            "description": "Prosody is a modern, lightweight XMPP (Jabber) communication server designed for efficiency and extensibility.\n\nWithin the NjordDeploy ecosystem, this component provides a private and secure instant messaging platform. It allows users to host their own chat services, including:\n\nOne-to-one messaging: Secure, real-time private conversations.\n\nMulti-User Chat (MUC): Group chat capabilities for family or teams.\n\nHTTP File Upload: Seamless sharing of photos and files directly from your own hardware.\n\nModern Security: Automated TLS encryption using Let's Encrypt certificates via Nginx Proxy Manager.\n\nNote: This service requires port 5222 (client-to-server) and 5269 (server-to-server) to be forwarded in your router for external access.",
             "group": "general",
             "has_configuration": true,
             "has_traefik_support": true,

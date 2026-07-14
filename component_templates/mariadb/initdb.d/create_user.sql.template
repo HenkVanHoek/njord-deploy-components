@@ -8,10 +8,10 @@
 CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASS}';
 
 -- Maak de database aan als deze nog niet bestaat
-CREATE DATABASE IF NOT EXISTS piselfhosting;
+CREATE DATABASE IF NOT EXISTS njorddeploy;
 
--- Verleen alle privileges op de 'piselfhosting' database aan de geconfigureerde gebruiker
-GRANT ALL PRIVILEGES ON piselfhosting.* TO '${DB_USER}'@'%';
+-- Verleen alle privileges op de 'njorddeploy' database aan de geconfigureerde gebruiker
+GRANT ALL PRIVILEGES ON njorddeploy.* TO '${DB_USER}'@'%';
 
 -- Update privileges (belangrijk na GRANT commando's)
 FLUSH PRIVILEGES;
@@ -19,7 +19,7 @@ FLUSH PRIVILEGES;
 -- Optioneel: Maak hier eventueel specifieke gebruikers/databases aan voor andere apps
 -- Voorbeeld voor Nextcloud (als deze een aparte gebruiker nodig heeft)
 -- CREATE USER IF NOT EXISTS 'nextcloud_user'@'%' IDENTIFIED BY 'jouw_nextcloud_db_wachtwoord';
--- GRANT ALL PRIVILEGES ON piselfhosting.* TO 'nextcloud_user'@'%';
+-- GRANT ALL PRIVILEGES ON njorddeploy.* TO 'nextcloud_user'@'%';
 -- FLUSH PRIVILEGES;
 
 -- Optioneel: Meer database/gebruiker configuraties

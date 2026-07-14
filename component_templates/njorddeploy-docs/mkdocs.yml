@@ -1,5 +1,5 @@
-site_name: PiSelfhosting Documentation
-site_description: 'Official documentation for the PiSelfhosting project.'
+site_name: NjordDeploy Documentation
+site_description: 'Official documentation for the NjordDeploy project.'
 
 theme:
   name: material

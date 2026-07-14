@@ -61,7 +61,7 @@
             "type": "string"
         },
         {
-            "default": "piselfhosting.com",
+            "default": "njorddeploy.com",
             "description": "Your public domain name for dashboard access (e.g., traefik.your.domain). Required for Let's Encrypt.",
             "id": "DOMAIN_NAME",
             "label": "Domain Name",

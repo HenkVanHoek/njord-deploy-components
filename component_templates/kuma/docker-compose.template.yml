@@ -5,7 +5,7 @@
 services:
   uptime-kuma:
     image: louislam/uptime-kuma:{{ component_version }}
-    container_name: piselfhosting-uptime-kuma
+    container_name: njorddeploy-uptime-kuma
     restart: unless-stopped
     ports:
       - "3001:3001" # Port from metadata is 3001
@@ -15,8 +15,8 @@ services:
       # Uptime Kuma uses its own internal PUID/PGID
       - "TZ={{TZ}}"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true

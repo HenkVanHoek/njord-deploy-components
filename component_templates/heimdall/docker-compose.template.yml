@@ -4,7 +4,7 @@
 # breaking_changes: "None"
 services:
   heimdall:
-    container_name: piselfhosting-heimdall
+    container_name: njorddeploy-heimdall
     image: lscr.io/linuxserver/heimdall:{{ component_version }}
     restart: unless-stopped
     ports:
@@ -17,8 +17,8 @@ services:
       - "PGID={{PGID}}"
       - "TZ={{TZ}}"
     networks:
-      - piselfhosting_net
+      - njorddeploy_net
 
 networks:
-  piselfhosting_net:
+  njorddeploy_net:
     external: true
