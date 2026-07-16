@@ -1,14 +1,14 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "latest"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   organizr:
     container_name: njorddeploy-organizr
-    image: lscr.io/linuxserver/organizr:{{ component_version }}
+    image: organizr/organizr:{{ component_version }}
     restart: unless-stopped
     ports:
-      - "8095:80"
+      - "{{ PORT_ORGANIZR | default(8095) }}:80"
     volumes:
       - "{{DATA_ROOT}}/organizr/config:/config"
     environment:

@@ -7,7 +7,6 @@
             "lora-service",
             "octoprint",
             "prosody",
-            "test-playwright",
             "frigate",
             "homeassistant",
             "scrypted",
@@ -225,6 +224,36 @@
             "traefik_internal_port": null,
             "ui_port_variable": null
         },
+        "docker-jitsi-meet": {
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Jitsi Meet is a collection of open-source projects that provides a secure, simple, and scalable video conferencing solution. This component sets up a complete Jitsi Meet instance with optional Etherpad collaboration and recording capabilities.",
+            "docker_service_name": "web",
+            "group": "Communications",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "jitsi/web",
+            "name": "jitsi-meet",
+            "package_id": "general-stack",
+            "protocol": "https",
+            "resource_profile": {
+                "cpu": "high",
+                "ram": "high",
+                "recommended_cores": 4,
+                "recommended_ram_mb": 8192,
+                "recommended_storage_gb": 40,
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "video",
+                "chat",
+                "communications",
+                "self-hosted"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "JITSI_HTTPS_PORT"
+        },
         "filebrowser": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -252,11 +281,15 @@
         },
         "frigate": {
             "component_version": "stable",
+            "config_templates": {
+                "config.yml": "frigate/config/config.yml",
+                "frigate_camera_config_tool.py": "frigate/config/frigate_camera_config_tool.py"
+            },
             "conflicts_with": [],
             "depends_on": [],
             "description": "NVR with real-time object detection for IP cameras.",
             "group": "Smart Home & IoT",
-            "has_configuration": false,
+            "has_configuration": true,
             "has_traefik_support": false,
             "has_ui": true,
             "image_name": "blakeblackshear/frigate",
@@ -564,10 +597,37 @@
             ],
             "traefik_internal_port": null
         },
+        "njorddeploy-service-maintenance": {
+            "component_version": "0.1.0",
+            "conflicts_with": [],
+            "default": false,
+            "depends_on": [],
+            "description": "Monitor status, updates and vulnerabilities.",
+            "group": "System Tools",
+            "has_configuration": false,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "henkvanhoek/njorddeploy-service-maintenance",
+            "intent_questions": [],
+            "name": "Service Maintenance",
+            "package_id": null,
+            "project_url": "https://github.com/HenkVanHoek/njord-deploy",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "self-hosted"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PISELFHOSTING_SERVICE_MAINTENANCE_WEB_PORT"
+        },
         "notify-push": {
             "conflicts_with": [],
             "depends_on": [
-                "nextcloud-app",
+                "nextcloud",
                 "nextcloud-db",
                 "nextcloud-redis"
             ],
@@ -662,33 +722,6 @@
             "traefik_host_variable": "VIRTUAL_HOST",
             "traefik_internal_port": 80,
             "ui_port_variable": "PIHOLE_WEB_PORT"
-        },
-        "njorddeploy-service-maintenance": {
-            "component_version": "0.1.0",
-            "conflicts_with": [],
-            "default": false,
-            "depends_on": [],
-            "description": "Monitor status, updates and vulnerabilities.",
-            "group": "System Tools",
-            "has_configuration": false,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "henkvanhoek/njorddeploy-service-maintenance",
-            "intent_questions": [],
-            "name": "Service Maintenance",
-            "package_id": null,
-            "project_url": "https://github.com/HenkVanHoek/NjordDeploy",
-            "protocol": "http",
-            "resource_profile": {
-                "cpu": "medium",
-                "ram": "medium",
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "self-hosted"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "NJORDDEPLOY_SERVICE_MAINTENANCE_WEB_PORT"
         },
         "pish-fluffychat-web": {
             "conflicts_with": [],
@@ -941,29 +974,6 @@
             "traefik_internal_port": null,
             "ui_port_variable": "SONARR_WEB_PORT"
         },
-        "test-playwright": {
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "My first test of playwright",
-            "group": "general",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": false,
-            "image_name": "mcr.microsoft.com/playwright",
-            "intent_questions": [],
-            "name": "Test Playwright",
-            "package_id": null,
-            "resource_profile": {
-                "cpu": "medium",
-                "ram": "medium",
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "self-hosted"
-            ],
-            "traefik_internal_port": null
-        },
         "traefik": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -1140,32 +1150,6 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
-        },
-        "docker-jitsi-meet": {
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Jitsi Meet is a collection of open-source projects that provides a secure, simple, and scalable video conferencing solution. This component sets up a complete Jitsi Meet instance with optional Etherpad collaboration and recording capabilities.",
-            "docker_service_name": "web",
-            "group": "Communications",
-            "has_configuration": true,
-            "has_ui": true,
-            "image_name": "jitsi/web",
-            "name": "jitsi-meet",
-            "resource_profile": {
-                "cpu": "high",
-                "ram": "high",
-                "recommended_cores": 4,
-                "recommended_ram_mb": 8192,
-                "recommended_storage_gb": 40,
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "video",
-                "chat",
-                "communications",
-                "self-hosted"
-            ],
-            "ui_port_variable": null
         }
     },
     "packages": {

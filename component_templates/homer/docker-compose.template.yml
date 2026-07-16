@@ -1,14 +1,14 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "v26.4.2"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   homer:
     container_name: njorddeploy-homer
-    image: bcpierce/homer:{{ component_version }}
+    image: b4bz/homer:{{ component_version }}
     restart: unless-stopped
     ports:
-      - "8085:8080"
+      - "{{ PORT_HOMER | default(8085) }}:8080"
     volumes:
       - "{{DATA_ROOT}}/homer/assets:/www/assets"
     # Homer is simple and does not need PUID/PGID/TZ

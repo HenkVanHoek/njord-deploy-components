@@ -1,6 +1,6 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "10.11.18"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   nextcloud-db:
@@ -23,3 +23,7 @@ services:
       MYSQL_PASSWORD: "{{ NEXTCLOUD_DB_PASSWORD }}"
       MYSQL_DATABASE: "{{ NEXTCLOUD_DB_NAME }}"
       MYSQL_USER: "{{ NEXTCLOUD_DB_USER }}"
+
+networks:
+  nextcloud-internal:
+    name: nextcloud-internal

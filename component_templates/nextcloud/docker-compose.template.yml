@@ -1,6 +1,6 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "latest"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   nextcloud-app:
@@ -36,3 +36,10 @@ services:
       SMTP_AUTH: "true"
       SMTP_NAME: "{{ NEXTCLOUD_MAIL_SMTPNAME }}"
       SMTP_PASSWORD: "{{ NEXTCLOUD_MAIL_SMTPPASSWORD }}"
+
+networks:
+  pi-services:
+    name: njorddeploy_net
+    external: true
+  nextcloud-internal:
+    name: nextcloud-internal

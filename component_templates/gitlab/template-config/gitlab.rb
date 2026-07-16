@@ -34,7 +34,7 @@ postgresql['shared_buffers'] = "256MB" # Default is 256MB, can be lowered to 128
 # To disable Prometheus monitoring (saves a lot of memory):
 prometheus_monitoring['enable'] = false
 
-# --- EMAIL CONFIGURATION (EXAMPLE FOR INTERNAL NJORDDEPLOY MAIL SERVER) ---
+# --- EMAIL CONFIGURATION (EXAMPLE FOR INTERNAL PISELFHOSTING MAIL SERVER) ---
 # These settings are managed by the web configurator.
 # This example shows how to connect to another mail server container
 # within the same Docker network.

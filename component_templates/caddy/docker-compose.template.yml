@@ -1,10 +1,10 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "v2.11.4"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   caddy:
-    image: caddy:latest
+    image: caddy:{{ component_version }}
     container_name: caddy
     restart: unless-stopped
     ports:

@@ -1,10 +1,10 @@
-# status: "untested"
-# last_tested_version: "none"
-# platform_notes: "None"
+# status: "tested"
+# last_tested_version: "latest"
+# platform_notes: "Tested successfully on Proxmox LXC."
 # breaking_changes: "None"
 services:
   nextcloud-redis:
-    image: redis:alpine
+    image: redis:{{ component_version if component_version != 'latest' else 'alpine' }}
     container_name: nextcloud-redis
     restart: always
     labels:
@@ -13,3 +13,7 @@ services:
       TZ: "{{ TZ }}"
     networks:
       - nextcloud-internal
+
+networks:
+  nextcloud-internal:
+    name: nextcloud-internal
