@@ -1185,6 +1185,34 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
+        },
+        "stirling-pdf": {
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "A powerful, open-source PDF editing platform for editing, signing, redacting, converting, and automating PDFs.",
+            "docker_service_name": "stirling-pdf",
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_ui": true,
+            "image_name": "stirlingtools/stirling-pdf",
+            "name": "Stirling PDF",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "250m",
+                "ram": "512MB",
+                "recommended_cores": 1,
+                "recommended_ram_mb": 512,
+                "recommended_storage_gb": 5,
+                "storage_type": "ssd"
+            },
+            "tags": [
+                "pdf",
+                "editor",
+                "automation",
+                "document",
+                "productivity"
+            ],
+            "ui_port_variable": "STIRLING_PDF_HTTP_PORT"
         }
     },
     "packages": {
