@@ -1213,6 +1213,20 @@
                 "productivity"
             ],
             "ui_port_variable": "STIRLING_PDF_HTTP_PORT"
+        },
+        "n8n": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Fair-code platform to build and deploy AI agents and workflows. Combine a visual canvas with custom code, run it self-hosted, and connect to 1500+ integrations.",
+            "docker_service_name": "n8n",
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_ui": true,
+            "image_name": "docker.n8n.io/n8nio/n8n",
+            "name": "n8n",
+            "protocol": "http",
+            "ui_port_variable": "N8N_WEB_PORT"
         }
     },
     "packages": {
