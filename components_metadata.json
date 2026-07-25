@@ -1256,6 +1256,35 @@
                 "ui"
             ],
             "ui_port_variable": "SEMAPHORE_PORT"
+        },
+        "voicebox": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "The open-source AI voice studio. Clone any voice. Generate speech. Dictate into any app. Talk to agents in voices you own. The full voice I/O stack, running locally on your machine.",
+            "docker_service_name": "voicebox",
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_ui": true,
+            "image_name": "ghcr.io/jamiepine/voicebox",
+            "name": "Voicebox",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "4",
+                "ram": "8G",
+                "recommended_cores": 4,
+                "recommended_ram_mb": 8192,
+                "recommended_storage_gb": 20,
+                "storage_type": "ssd"
+            },
+            "tags": [
+                "AI",
+                "Voice",
+                "Speech-to-Text",
+                "Text-to-Speech",
+                "Voice Cloning"
+            ],
+            "ui_port_variable": "VOICEBOX_WEB_PORT"
         }
     },
     "packages": {
