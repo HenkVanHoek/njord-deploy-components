@@ -1227,6 +1227,35 @@
             "name": "n8n",
             "protocol": "http",
             "ui_port_variable": "N8N_WEB_PORT"
+        },
+        "semaphore": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Modern UI for Ansible, Terraform/OpenTofu/Terragrunt, PowerShell and other DevOps tools.",
+            "docker_service_name": "semaphore-ui",
+            "group": "System Tools",
+            "has_configuration": true,
+            "has_ui": true,
+            "image_name": "semaphoreui/semaphore",
+            "name": "Semaphore UI",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "500m",
+                "ram": "512MB",
+                "recommended_cores": 1,
+                "recommended_ram_mb": 512,
+                "recommended_storage_gb": 1,
+                "storage_type": "ssd"
+            },
+            "tags": [
+                "ansible",
+                "terraform",
+                "devops",
+                "automation",
+                "ui"
+            ],
+            "ui_port_variable": "SEMAPHORE_PORT"
         }
     },
     "packages": {
