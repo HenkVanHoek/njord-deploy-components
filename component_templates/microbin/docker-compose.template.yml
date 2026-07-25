@@ -1,10 +1,10 @@
-# status: beta
-# last_tested_version: stable
-# platform_notes: none
-# breaking_changes: none
+# status: "tested"
+# last_tested_version: "2.1.4"
+# platform_notes: "Tested successfully on Proxmox LXC."
+# breaking_changes: Image moved from szabodanika/microbin to danielszabo99/microbin on Docker Hub.
 services:
   microbin:
-    image: {{ image_name }}:{{ component_version }}
+    image: danielszabo99/microbin:latest
     container_name: njorddeploy-microbin
     ports:
       - "{{ MICROBIN_PORT }}:8080"
