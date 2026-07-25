@@ -1285,6 +1285,34 @@
                 "Voice Cloning"
             ],
             "ui_port_variable": "VOICEBOX_WEB_PORT"
+        },
+        "audiobookshelf": {
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Self-hosted audiobook and podcast server to manage and play your audiobooks and podcasts.",
+            "docker_service_name": "audiobookshelf",
+            "group": "Media Servers",
+            "has_configuration": true,
+            "has_ui": true,
+            "image_name": "ghcr.io/advplyr/audiobookshelf",
+            "name": "Audiobookshelf",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "100m",
+                "ram": "256Mi",
+                "recommended_cores": 1,
+                "recommended_ram_mb": 512,
+                "recommended_storage_gb": 5,
+                "storage_type": "hdd"
+            },
+            "tags": [
+                "audiobooks",
+                "podcasts",
+                "media",
+                "server",
+                "audio"
+            ],
+            "ui_port_variable": "AUDIOBOOKSHELF_PORT"
         }
     },
     "packages": {
