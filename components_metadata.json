@@ -1330,6 +1330,28 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
+        },
+        "gluetun": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Lightweight swiss-army-knife-like VPN client to multiple VPN service providers.",
+            "docker_service_name": "gluetun",
+            "group": "Media Stack",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "ghcr.io/qdm12/gluetun",
+            "name": "Gluetun",
+            "package_id": "media-stack",
+            "protocol": null,
+            "tags": [
+                "vpn",
+                "network",
+                "security"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": null
         }
     },
     "packages": {
