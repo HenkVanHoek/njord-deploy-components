@@ -1352,6 +1352,30 @@
             ],
             "traefik_internal_port": null,
             "ui_port_variable": null
+        },
+        "prowlarr": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers.",
+            "docker_service_name": "prowlarr",
+            "group": "Media Stack",
+            "has_configuration": false,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "lscr.io/linuxserver/prowlarr",
+            "name": "Prowlarr",
+            "package_id": "media-stack",
+            "protocol": "http",
+            "tags": [
+                "media",
+                "indexer",
+                "torrent",
+                "usenet",
+                "arr"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PROWLARR_WEB_PORT"
         }
     },
     "packages": {
