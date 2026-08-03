@@ -1432,6 +1432,59 @@
                     "type": "password"
                 }
             ]
+        },
+        "prometheus": {
+            "component_version": "v2.54.1",
+            "config_templates": {
+                "prometheus.yml": "prometheus/prometheus.yml"
+            },
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. This stack includes Prometheus, Node Exporter, and cAdvisor for comprehensive system and container monitoring.",
+            "docker_service_name": "prometheus",
+            "group": "System Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "prom/prometheus",
+            "name": "Prometheus Stack",
+            "package_id": null,
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "monitoring",
+                "metrics",
+                "observability"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PROMETHEUS_WEB_PORT",
+            "variables": [
+                {
+                    "default": "9090",
+                    "description": "The port Prometheus will listen on for its web interface.",
+                    "id": "PROMETHEUS_WEB_PORT",
+                    "label": "Prometheus Web Port",
+                    "type": "port"
+                },
+                {
+                    "default": "{{ CONFIG_BASE_PATH }}/prometheus/data",
+                    "description": "The path where Prometheus stores its time-series data.",
+                    "id": "PROMETHEUS_DATA_PATH",
+                    "label": "Prometheus Data Path",
+                    "type": "text"
+                },
+                {
+                    "default": "8080",
+                    "description": "The port cAdvisor will listen on for its web interface.",
+                    "id": "CADVISOR_WEB_PORT",
+                    "label": "cAdvisor Web Port",
+                    "type": "port"
+                }
+            ]
         }
     },
     "packages": {
