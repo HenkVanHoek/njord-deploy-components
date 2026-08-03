@@ -383,6 +383,84 @@
             ],
             "traefik_internal_port": null
         },
+        "gluetun": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Lightweight swiss-army-knife-like VPN client to multiple VPN service providers.",
+            "docker_service_name": "gluetun",
+            "group": "Media Stack",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "ghcr.io/qdm12/gluetun",
+            "name": "Gluetun",
+            "package_id": "media-stack",
+            "protocol": null,
+            "tags": [
+                "vpn",
+                "network",
+                "security"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": null
+        },
+        "grafana": {
+            "component_version": "11.1.3",
+            "config_templates": {
+                "prometheus.yml": "grafana/provisioning/datasources/prometheus.yml"
+            },
+            "conflicts_with": [],
+            "depends_on": [
+                "prometheus"
+            ],
+            "description": "The open-source platform for monitoring and observability",
+            "docker_service_name": "grafana",
+            "group": "System Tools",
+            "has_configuration": true,
+            "has_traefik_support": true,
+            "has_ui": true,
+            "image_name": "grafana/grafana-oss",
+            "name": "Grafana Stack",
+            "package_id": "monitoring-stack",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "monitoring",
+                "observability",
+                "dashboard",
+                "metrics"
+            ],
+            "traefik_internal_port": 3000,
+            "ui_port_variable": "GRAFANA_WEB_PORT",
+            "variables": [
+                {
+                    "default": "3000",
+                    "description": "External port for the Grafana UI",
+                    "id": "GRAFANA_WEB_PORT",
+                    "label": "Grafana Web Port",
+                    "type": "port"
+                },
+                {
+                    "default": "{{ CONFIG_BASE_PATH }}/grafana/data",
+                    "description": "Host path for Grafana persistent data",
+                    "id": "GRAFANA_DATA_PATH",
+                    "label": "Grafana Data Path",
+                    "type": "text"
+                },
+                {
+                    "default": "NjB4N2E1YjQzYjU2Y2QxMjM0NTY3ODkwYQ==",
+                    "description": "Admin password for the Grafana UI",
+                    "id": "GRAFANA_ADMIN_PASSWORD",
+                    "label": "Grafana Admin Password",
+                    "type": "password"
+                }
+            ]
+        },
         "heimdall": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -581,7 +659,7 @@
                 "nextcloud-redis"
             ],
             "description": "File storage, sharing, productivity and collaboration platform.",
-            "group": "productivity",
+            "group": "Productivity",
             "has_configuration": true,
             "has_traefik_support": false,
             "has_ui": true,
@@ -918,6 +996,59 @@
             "traefik_internal_port": null,
             "ui_port_variable": "PORTAINER_WEB_PORT"
         },
+        "prometheus": {
+            "component_version": "v2.54.1",
+            "config_templates": {
+                "prometheus.yml": "prometheus/prometheus.yml"
+            },
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. This stack includes Prometheus, Node Exporter, and cAdvisor for comprehensive system and container monitoring.",
+            "docker_service_name": "prometheus",
+            "group": "System Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "prom/prometheus",
+            "name": "Prometheus Stack",
+            "package_id": "monitoring-stack",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "monitoring",
+                "metrics",
+                "observability"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PROMETHEUS_WEB_PORT",
+            "variables": [
+                {
+                    "default": "9090",
+                    "description": "The port Prometheus will listen on for its web interface.",
+                    "id": "PROMETHEUS_WEB_PORT",
+                    "label": "Prometheus Web Port",
+                    "type": "port"
+                },
+                {
+                    "default": "{{ CONFIG_BASE_PATH }}/prometheus/data",
+                    "description": "The path where Prometheus stores its time-series data.",
+                    "id": "PROMETHEUS_DATA_PATH",
+                    "label": "Prometheus Data Path",
+                    "type": "text"
+                },
+                {
+                    "default": "8080",
+                    "description": "The port cAdvisor will listen on for its web interface.",
+                    "id": "CADVISOR_WEB_PORT",
+                    "label": "cAdvisor Web Port",
+                    "type": "port"
+                }
+            ]
+        },
         "prosody": {
             "conflicts_with": [],
             "depends_on": [],
@@ -938,6 +1069,30 @@
                 "self-hosted"
             ],
             "traefik_internal_port": 80
+        },
+        "prowlarr": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers.",
+            "docker_service_name": "prowlarr",
+            "group": "Media Stack",
+            "has_configuration": false,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "lscr.io/linuxserver/prowlarr",
+            "name": "Prowlarr",
+            "package_id": "media-stack",
+            "protocol": "http",
+            "tags": [
+                "media",
+                "indexer",
+                "torrent",
+                "usenet",
+                "arr"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PROWLARR_WEB_PORT"
         },
         "qbittorrent": {
             "component_version": "latest",
@@ -1330,161 +1485,6 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
-        },
-        "gluetun": {
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Lightweight swiss-army-knife-like VPN client to multiple VPN service providers.",
-            "docker_service_name": "gluetun",
-            "group": "Media Stack",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": false,
-            "image_name": "ghcr.io/qdm12/gluetun",
-            "name": "Gluetun",
-            "package_id": "media-stack",
-            "protocol": null,
-            "tags": [
-                "vpn",
-                "network",
-                "security"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": null
-        },
-        "prowlarr": {
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers.",
-            "docker_service_name": "prowlarr",
-            "group": "Media Stack",
-            "has_configuration": false,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "lscr.io/linuxserver/prowlarr",
-            "name": "Prowlarr",
-            "package_id": "media-stack",
-            "protocol": "http",
-            "tags": [
-                "media",
-                "indexer",
-                "torrent",
-                "usenet",
-                "arr"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "PROWLARR_WEB_PORT"
-        },
-        "grafana": {
-            "component_version": "11.1.3",
-            "config_templates": {
-                "prometheus.yml": "grafana/provisioning/datasources/prometheus.yml"
-            },
-            "conflicts_with": [],
-            "depends_on": [
-                "prometheus"
-            ],
-            "description": "The open-source platform for monitoring and observability",
-            "docker_service_name": "grafana",
-            "group": "System Tools",
-            "has_configuration": true,
-            "has_traefik_support": true,
-            "has_ui": true,
-            "image_name": "grafana/grafana-oss",
-            "name": "Grafana Stack",
-            "package_id": null,
-            "protocol": "http",
-            "resource_profile": {
-                "cpu": "medium",
-                "ram": "medium",
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "monitoring",
-                "observability",
-                "dashboard",
-                "metrics"
-            ],
-            "traefik_internal_port": 3000,
-            "ui_port_variable": "GRAFANA_WEB_PORT",
-            "variables": [
-                {
-                    "default": "3000",
-                    "description": "External port for the Grafana UI",
-                    "id": "GRAFANA_WEB_PORT",
-                    "label": "Grafana Web Port",
-                    "type": "port"
-                },
-                {
-                    "default": "{{ CONFIG_BASE_PATH }}/grafana/data",
-                    "description": "Host path for Grafana persistent data",
-                    "id": "GRAFANA_DATA_PATH",
-                    "label": "Grafana Data Path",
-                    "type": "text"
-                },
-                {
-                    "default": "NjB4N2E1YjQzYjU2Y2QxMjM0NTY3ODkwYQ==",
-                    "description": "Admin password for the Grafana UI",
-                    "id": "GRAFANA_ADMIN_PASSWORD",
-                    "label": "Grafana Admin Password",
-                    "type": "password"
-                }
-            ]
-        },
-        "prometheus": {
-            "component_version": "v2.54.1",
-            "config_templates": {
-                "prometheus.yml": "prometheus/prometheus.yml"
-            },
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. This stack includes Prometheus, Node Exporter, and cAdvisor for comprehensive system and container monitoring.",
-            "docker_service_name": "prometheus",
-            "group": "System Tools",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "prom/prometheus",
-            "name": "Prometheus Stack",
-            "package_id": null,
-            "protocol": "http",
-            "resource_profile": {
-                "cpu": "medium",
-                "ram": "medium",
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "monitoring",
-                "metrics",
-                "observability"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "PROMETHEUS_WEB_PORT",
-            "variables": [
-                {
-                    "default": "9090",
-                    "description": "The port Prometheus will listen on for its web interface.",
-                    "id": "PROMETHEUS_WEB_PORT",
-                    "label": "Prometheus Web Port",
-                    "type": "port"
-                },
-                {
-                    "default": "{{ CONFIG_BASE_PATH }}/prometheus/data",
-                    "description": "The path where Prometheus stores its time-series data.",
-                    "id": "PROMETHEUS_DATA_PATH",
-                    "label": "Prometheus Data Path",
-                    "type": "text"
-                },
-                {
-                    "default": "8080",
-                    "description": "The port cAdvisor will listen on for its web interface.",
-                    "id": "CADVISOR_WEB_PORT",
-                    "label": "cAdvisor Web Port",
-                    "type": "port"
-                }
-            ]
         }
     },
     "packages": {
@@ -1501,6 +1501,11 @@
         "nextcloud-stack": {
             "description": "",
             "name": "Nextcloud Stack",
+            "network_type": "bridge"
+        },
+        "monitoring-stack": {
+            "description": "Prometheus & Grafana monitoring stack to collect, store, and visualize host and container metrics in a unified dashboard.",
+            "name": "Monitoring Stack",
             "network_type": "bridge"
         }
     }
