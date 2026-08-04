@@ -41,7 +41,8 @@
             "stirling-pdf",
             "unbound",
             "vaultwarden",
-            "web-notepad"
+            "web-notepad",
+            "adminer"
         ],
         "default_group": "general",
         "global_variables": [
@@ -186,6 +187,37 @@
             ],
             "traefik_internal_port": null,
             "ui_port_variable": null
+        },
+        "adminer": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Database management in a single PHP file. Supports MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, SimpleDB, Elasticsearch, MongoDB.",
+            "group": "databases",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "adminer",
+            "intent_questions": [],
+            "name": "Adminer",
+            "package_id": null,
+            "project_url": "https://www.adminer.org/",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "low",
+                "ram": "low",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "database",
+                "management",
+                "mysql",
+                "postgres",
+                "sqlite",
+                "self-hosted"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "ADMINER_WEB_PORT"
         },
         "audiobookshelf": {
             "conflicts_with": [],
@@ -1498,14 +1530,14 @@
             "name": "Media Stack",
             "network_type": "bridge"
         },
-        "nextcloud-stack": {
-            "description": "",
-            "name": "Nextcloud Stack",
-            "network_type": "bridge"
-        },
         "monitoring-stack": {
             "description": "Prometheus & Grafana monitoring stack to collect, store, and visualize host and container metrics in a unified dashboard.",
             "name": "Monitoring Stack",
+            "network_type": "bridge"
+        },
+        "nextcloud-stack": {
+            "description": "",
+            "name": "Nextcloud Stack",
             "network_type": "bridge"
         }
     }
