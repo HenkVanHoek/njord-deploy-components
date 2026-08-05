@@ -1,6 +1,6 @@
-# status: "testing"
+# status: "tested"
 # last_tested_version: "latest"
-# platform_notes: "Supports multi-arch including ARM and x86_64."
+# platform_notes: "Tested successfully on Proxmox VM (template 902)."
 # breaking_changes: "None"
 services:
   adminer:
