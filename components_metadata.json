@@ -1517,6 +1517,29 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
+        },
+        "homepage": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. Homepage does not include an authentication layer itself; it is recommended to place it behind a reverse proxy with authentication if exposed to untrusted networks. For optimal file permissions on mounted volumes, the container is configured to run as root (user: 0:0) by default, overriding the PUID/PGID environment variables if set. Note: Docker integration requiring access to /var/run/docker.sock is not enabled by default for security reasons. Users can manually add this volume mount if needed.",
+            "docker_service_name": "homepage",
+            "group": "dashboard & Homepages",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "ghcr.io/gethomepage/homepage",
+            "name": "Homepage",
+            "package_id": null,
+            "protocol": "http",
+            "tags": [
+                "dashboard",
+                "homepage",
+                "docker",
+                "monitoring"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "HOMEPAGE_WEB_PORT"
         }
     },
     "packages": {
