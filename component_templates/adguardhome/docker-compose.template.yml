@@ -1,4 +1,4 @@
-# status: beta
+# status: "beta"
 # last_tested_version: stable
 # platform_notes: Requires root user to bind to privileged ports like 53 (DNS).
 # breaking_changes: none

@@ -5,6 +5,8 @@
             "description": "The port for accessing the AdGuard Home web interface.",
             "id": "ADGUARDHOME_WEB_PORT",
             "label": "AdGuard Home Web UI Port",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -12,6 +14,8 @@
             "description": "The UDP port for DNS queries. Typically 53.",
             "id": "ADGUARDHOME_DNS_PORT_UDP",
             "label": "AdGuard Home DNS Port (UDP)",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -19,20 +23,8 @@
             "description": "The TCP port for DNS queries. Typically 53.",
             "id": "ADGUARDHOME_DNS_PORT_TCP",
             "label": "AdGuard Home DNS Port (TCP)",
-            "type": "port"
-        },
-        {
-            "default": "67",
-            "description": "The UDP port for DHCP server. Only required if using AdGuard Home as a DHCP server.",
-            "id": "ADGUARDHOME_DHCP_PORT_UDP",
-            "label": "AdGuard Home DHCP Port (UDP)",
-            "type": "port"
-        },
-        {
-            "default": "68",
-            "description": "The TCP port for DHCP server. Only required if using AdGuard Home as a DHCP server.",
-            "id": "ADGUARDHOME_DHCP_PORT_TCP",
-            "label": "AdGuard Home DHCP Port (TCP)",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -40,6 +32,8 @@
             "description": "The TCP port for DNS-over-HTTPS (DoH). Typically 443.",
             "id": "ADGUARDHOME_HTTPS_PORT",
             "label": "AdGuard Home DNS-over-HTTPS Port",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -47,6 +41,8 @@
             "description": "The TCP port for DNS-over-TLS (DoT). Typically 853.",
             "id": "ADGUARDHOME_TLS_PORT",
             "label": "AdGuard Home DNS-over-TLS Port",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -54,6 +50,8 @@
             "description": "The UDP port for DNS-over-QUIC (DoQ). Typically 784.",
             "id": "ADGUARDHOME_QUIC_PORT",
             "label": "AdGuard Home DNS-over-QUIC Port",
+            "required": "",
+            "source": "",
             "type": "port"
         },
         {
@@ -61,6 +59,8 @@
             "description": "The TCP port for AdGuard Home's DNS proxy feature. Typically 8853.",
             "id": "ADGUARDHOME_DNSPROXY_PORT",
             "label": "AdGuard Home DNS Proxy Port",
+            "required": "",
+            "source": "",
             "type": "port"
         }
     ]

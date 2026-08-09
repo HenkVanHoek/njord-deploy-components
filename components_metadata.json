@@ -1619,12 +1619,21 @@
             "name": "AdGuard Home",
             "package_id": null,
             "protocol": "http",
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "recommended_cores": null,
+                "recommended_ram_mb": null,
+                "recommended_storage_gb": null,
+                "storage_type": "persistent"
+            },
             "tags": [
                 "dns",
                 "adblock",
                 "privacy",
                 "security"
             ],
+            "test_status": "beta",
             "traefik_internal_port": 3000,
             "ui_port_variable": "ADGUARDHOME_WEB_PORT"
         }
