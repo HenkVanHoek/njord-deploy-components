@@ -1,7 +1,6 @@
 {
     "_njorddeploy": {
         "components_order": [
-            "adguard-home",
             "pi-hole",
             "audiobookshelf",
             "caddy",
@@ -42,7 +41,8 @@
             "unbound",
             "vaultwarden",
             "web-notepad",
-            "adminer"
+            "adminer",
+            "phpmyadmin"
         ],
         "default_group": "general",
         "global_variables": [
@@ -164,29 +164,36 @@
     "components": {
         "adguard-home": {
             "component_version": "latest",
-            "conflicts_with": [],
+            "conflicts_with": [
+                "pi-hole"
+            ],
             "depends_on": [],
-            "description": "Network-wide ad & tracker blocking DNS server. An alternative to Pi-hole.",
+            "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
+            "docker_service_name": "adguardhome",
             "group": "dns_blocker",
             "has_configuration": false,
-            "has_traefik_support": false,
+            "has_traefik_support": true,
             "has_ui": true,
             "image_name": "adguard/adguardhome",
-            "intent_questions": [],
             "name": "AdGuard Home",
             "package_id": null,
-            "project_url": "https://github.com/AdguardTeam/AdGuardHome",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
+                "recommended_cores": null,
+                "recommended_ram_mb": null,
+                "recommended_storage_gb": null,
                 "storage_type": "persistent"
             },
             "tags": [
-                "self-hosted"
+                "dns",
+                "adblock",
+                "privacy"
             ],
-            "traefik_internal_port": null,
-            "ui_port_variable": null
+            "test_status": "beta",
+            "traefik_internal_port": 80,
+            "ui_port_variable": "ADGUARDHOME_WEB_PORT"
         },
         "adminer": {
             "component_version": "latest",
@@ -222,7 +229,7 @@
         "audiobookshelf": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Self-hosted audiobook and podcast server to manage and play your audiobooks and podcasts.",
+            "description": "A self-hosted audiobook and podcast server for organizing, streaming, and tracking playback progress across your personal audio media library.",
             "docker_service_name": "audiobookshelf",
             "group": "Media Servers",
             "has_configuration": true,
@@ -285,7 +292,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A lightweight, next-generation Matrix homeserver, ideal for Raspberry Pi. But no working management tool available for on the Raspberry Pi.",
+            "description": "A high-performance, lightweight Matrix chat homeserver written in Rust, specifically optimized for low-resource environments like the Raspberry Pi.",
             "group": "general",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -340,7 +347,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Web-based file manager for managing your self-hosted data files and Caddyfile.",
+            "description": "A lightweight web-based file manager allowing users to upload, edit, delete, preview, and share files on server storage volumes.",
             "group": "System Tools",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -369,7 +376,7 @@
             },
             "conflicts_with": [],
             "depends_on": [],
-            "description": "NVR with real-time object detection for IP cameras.",
+            "description": "A high-performance Network Video Recorder (NVR) with local, real-time AI object detection using Coral TPU or CPU for IP security cameras.",
             "group": "Smart Home & IoT",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -419,7 +426,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Lightweight swiss-army-knife-like VPN client to multiple VPN service providers.",
+            "description": "A lightweight, multi-provider VPN client container supporting OpenVPN and WireGuard protocols to route Docker service traffic securely.",
             "docker_service_name": "gluetun",
             "group": "Media Stack",
             "has_configuration": true,
@@ -446,7 +453,7 @@
             "depends_on": [
                 "prometheus"
             ],
-            "description": "The open-source platform for monitoring and observability",
+            "description": "An open-source visualization and analytics platform that turns metrics and logs into dynamic, interactive dashboards for comprehensive system observability.",
             "docker_service_name": "grafana",
             "group": "System Tools",
             "has_configuration": true,
@@ -497,7 +504,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A simple and elegant application dashboard.",
+            "description": "An elegant, customizable application dashboard for organizing shortcuts and status widgets for all your self-hosted web services.",
             "group": "dashboard & Homepages",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -523,7 +530,7 @@
             "conflicts_with": [],
             "default": true,
             "depends_on": [],
-            "description": "A simple, yet powerful dashboard for your server.",
+            "description": "A modern, customizable server dashboard with direct integrations for monitoring homelab services, Docker container statuses, and media clients.",
             "group": "dashboard & Homepages",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -570,11 +577,34 @@
             ],
             "traefik_internal_port": null
         },
+        "homepage": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. Homepage does not include an authentication layer itself; it is recommended to place it behind a reverse proxy with authentication if exposed to untrusted networks. For optimal file permissions on mounted volumes, the container is configured to run as root (user: 0:0) by default, overriding the PUID/PGID environment variables if set. Note: Docker integration requiring access to /var/run/docker.sock is not enabled by default for security reasons. Users can manually add this volume mount if needed.",
+            "docker_service_name": "homepage",
+            "group": "dashboard & Homepages",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "ghcr.io/gethomepage/homepage",
+            "name": "Homepage",
+            "package_id": null,
+            "protocol": "http",
+            "tags": [
+                "dashboard",
+                "homepage",
+                "docker",
+                "monitoring"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "HOMEPAGE_WEB_PORT"
+        },
         "homer": {
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A dead simple, static homepage for your server.",
+            "description": "A lightweight, static application dashboard configured via YAML, designed for fast landing-page access to all your homelab services.",
             "group": "dashboard & Homepages",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -624,7 +654,7 @@
         "lora-service": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "",
+            "description": "A smart home IoT notification service that monitors LoRa-enabled mailbox sensors and sends real-time alert notifications when physical mail is delivered.",
             "group": "general",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -690,7 +720,7 @@
                 "nextcloud-db",
                 "nextcloud-redis"
             ],
-            "description": "File storage, sharing, productivity and collaboration platform.",
+            "description": "A comprehensive self-hosted productivity and collaboration suite offering secure file storage, online document editing, calendar, and contacts synchronization.",
             "group": "Productivity",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -714,7 +744,7 @@
         "nextcloud-db": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Relational MariaDB database tailored for Nextcloud.",
+            "description": "A dedicated, pre-configured MariaDB relational database server optimized for Nextcloud persistent data storage and high query performance.",
             "group": "databases",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -737,7 +767,7 @@
             "depends_on": [
                 "nextcloud-db"
             ],
-            "description": "Automated backup container for Nextcloud MariaDB database.",
+            "description": "An automated backup utility container that periodically exports SQL dumps of the Nextcloud MariaDB database for disaster recovery.",
             "group": "databases",
             "has_configuration": true,
             "has_ui": false,
@@ -757,7 +787,7 @@
         "nextcloud-redis": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "In-memory caching and lock broker for Nextcloud.",
+            "description": "An in-memory Redis datastore configured as a high-performance transactional file locking broker and caching layer for Nextcloud.",
             "group": "utilities",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -806,7 +836,7 @@
             "conflicts_with": [],
             "default": false,
             "depends_on": [],
-            "description": "Monitor status, updates and vulnerabilities.",
+            "description": "A system management component for monitoring service health, checking software updates, and auditing container vulnerabilities across NjordDeploy services.",
             "group": "System Tools",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -858,7 +888,7 @@
         "octoprint": {
             "conflicts_with": [],
             "depends_on": [],
-            "description": "The snappy web interface for your 3D printer.\nSee https://octoprint.org for more information.",
+            "description": "A web-based interface for remote 3D printer management, providing real-time print monitoring, G-code visualization, and live camera streaming.",
             "group": "general",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -875,11 +905,35 @@
             ],
             "traefik_internal_port": null
         },
+        "open-webui": {
+            "component_version": "main",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform designed to operate entirely offline. It supports various LLM runners like Ollama and OpenAI-compatible APIs, with built-in inference engine for RAG. This component bundles Open WebUI with Ollama for a complete, self-contained AI solution. Both services run as root (user: 0:0) to ensure proper file permissions for persistent data volumes.",
+            "docker_service_name": "open-webui",
+            "group": "Productivity",
+            "has_configuration": false,
+            "has_traefik_support": true,
+            "has_ui": true,
+            "image_name": "ghcr.io/open-webui/open-webui",
+            "name": "Open WebUI with Ollama",
+            "package_id": null,
+            "protocol": "http",
+            "tags": [
+                "AI",
+                "LLM",
+                "Ollama",
+                "OpenAI",
+                "Chatbot"
+            ],
+            "traefik_internal_port": 8080,
+            "ui_port_variable": "OPEN_WEBUI_PORT"
+        },
         "organizr": {
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A full-featured server organizer with a tabbed interface.",
+            "description": "A unified server management portal that organizes all your self-hosted applications into a single tabbed interface with custom user permissions.",
             "group": "dashboard & Homepages",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -900,11 +954,44 @@
             ],
             "traefik_internal_port": null
         },
+        "phpmyadmin": {
+            "component_version": "latest",
+            "config_templates": {
+                "config.inc.php": "phpmyadmin/config/config.inc.php"
+            },
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "A comprehensive web-based administration tool for managing MySQL and MariaDB databases, executing SQL queries, and managing user access control.",
+            "group": "databases",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "phpmyadmin",
+            "intent_questions": [],
+            "name": "phpMyAdmin",
+            "package_id": null,
+            "project_url": "https://www.phpmyadmin.net/",
+            "protocol": "http",
+            "resource_profile": {
+                "cpu": "low",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "database",
+                "management",
+                "mariadb",
+                "mysql",
+                "self-hosted"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": "PHPMYADMIN_WEB_PORT"
+        },
         "pi-hole": {
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A network-wide ad blocker that acts as a DNS sinkhole.",
+            "description": "A network-wide ad and tracker blocker that functions as a DNS sinkhole, protecting all local network devices without requiring client-side software.",
             "group": "dns_blocker",
             "has_configuration": true,
             "has_traefik_support": true,
@@ -1005,7 +1092,7 @@
             "conflicts_with": [],
             "default": true,
             "depends_on": [],
-            "description": "A powerful management UI for Docker environments.",
+            "description": "A powerful, user-friendly management UI that simplifies configuring, monitoring, and deploying Docker containers, stacks, and persistent volumes.",
             "group": "System Tools",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -1130,7 +1217,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A lightweight and powerful BitTorrent client.",
+            "description": "A lightweight, open-source BitTorrent download client featuring a full-featured web interface, bandwidth scheduling, and built-in search engines.",
             "group": "Media Stack",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -1156,7 +1243,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A fork of Sonarr to work with movies.",
+            "description": "An automated movie collection manager and PVR that monitors RSS feeds for new releases, triggers download clients, and automatically organizes media files.",
             "group": "Media Stack",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1182,7 +1269,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "The popular and easy-to-use Usenet download client.",
+            "description": "An automated Usenet binary newsreader and download manager featuring automatic repair, unpacking, and seamless PVR stack integration.",
             "group": "Media Stack",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -1208,7 +1295,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "High-performance video integration platform for smart homes.",
+            "description": "A high-performance smart home video integration platform that bridges IP camera feeds to Apple HomeKit, Google Home, and Alexa with hardware acceleration.",
             "group": "Smart Home & IoT",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1262,7 +1349,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Smart PVR for newsgroup and bittorrent users to manage and download TV shows.",
+            "description": "An automated TV series collection manager and PVR that tracks upcoming episodes, triggers downloads via Usenet or BitTorrent, and organizes show libraries.",
             "group": "Media Stack",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -1342,7 +1429,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "A validating, recursive, and caching DNS resolver for maximum privacy.",
+            "description": "A secure, validating, recursive, and caching DNS resolver designed for privacy, preventing upstream ISP DNS logging when paired with Pi-hole or AdGuard.",
             "group": "Security & Utilities",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1366,7 +1453,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Manage your UniFi networking devices from a central controller.",
+            "description": "A centralized management software suite for configuring, monitoring, and updating Ubiquiti UniFi network devices such as access points, switches, and gateways.",
             "group": "Smart Home & IoT",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1391,7 +1478,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": " A self-hosted monitoring tool for proactive health checks and notifications via email, Telegram, and more",
+            "description": "A feature-rich, self-hosted monitoring tool providing real-time status pages, HTTP/ping health checks, and alerts via multiple notification channels.",
             "group": "System Tools",
             "has_configuration": true,
             "has_traefik_support": false,
@@ -1469,7 +1556,7 @@
             "component_version": "latest",
             "conflicts_with": [],
             "depends_on": [],
-            "description": "Simple notepad to display the post-install summary.",
+            "description": "A minimal, web-based notepad application for quick note-taking, text sharing, and viewing system post-deployment summaries.",
             "group": "Security & Utilities",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1497,7 +1584,7 @@
             "depends_on": [
                 "mosquitto"
             ],
-            "description": "Bridge the gap between your Zigbee devices and your MQTT broker.",
+            "description": "A lightweight bridge that connects Zigbee smart home devices directly to an MQTT broker, enabling local control via Home Assistant or custom automation software.",
             "group": "Smart Home & IoT",
             "has_configuration": false,
             "has_traefik_support": false,
@@ -1517,62 +1604,6 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
-        },
-        "homepage": {
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery. Homepage does not include an authentication layer itself; it is recommended to place it behind a reverse proxy with authentication if exposed to untrusted networks. For optimal file permissions on mounted volumes, the container is configured to run as root (user: 0:0) by default, overriding the PUID/PGID environment variables if set. Note: Docker integration requiring access to /var/run/docker.sock is not enabled by default for security reasons. Users can manually add this volume mount if needed.",
-            "docker_service_name": "homepage",
-            "group": "dashboard & Homepages",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "ghcr.io/gethomepage/homepage",
-            "name": "Homepage",
-            "package_id": null,
-            "protocol": "http",
-            "tags": [
-                "dashboard",
-                "homepage",
-                "docker",
-                "monitoring"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "HOMEPAGE_WEB_PORT"
-        },
-        "phpmyadmin": {
-            "component_version": "latest",
-            "config_templates": {
-                "config.inc.php": "phpmyadmin/config/config.inc.php"
-            },
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Web interface for managing MySQL and MariaDB databases.",
-            "group": "databases",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "phpmyadmin",
-            "intent_questions": [],
-            "name": "phpMyAdmin",
-            "package_id": null,
-            "project_url": "https://www.phpmyadmin.net/",
-            "protocol": "http",
-            "resource_profile": {
-                "cpu": "low",
-                "ram": "medium",
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "database",
-                "management",
-                "mariadb",
-                "mysql",
-                "self-hosted"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "PHPMYADMIN_WEB_PORT"
         }
     },
     "packages": {
