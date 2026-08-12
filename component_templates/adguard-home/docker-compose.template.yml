@@ -1,21 +1,22 @@
-# status: "tested"
-# last_tested_version: "v0.107.78"
-# platform_notes: "Tested successfully on Proxmox LXC."
-# breaking_changes: "None"
+# status: beta
+# last_tested_version: stable
+# platform_notes: none
+# breaking_changes: none
 services:
-  adguard-home:
-    image: adguard/adguardhome:{{ component_version }}
-    container_name: njorddeploy-adguard-home
-    restart: unless-stopped
+  adguardhome:
+    image: "{{ image_name }}:{{ component_version }}"
+    container_name: njorddeploy-adguardhome
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "3000:3000/tcp" # Web UI port from metadata
-      - "853:853/tcp"  # DNS-over-TLS
-      - "443:443/tcp"  # DNS-over-HTTPS (if enabled, conflicts with proxies)
+      - "{{ ADGUARDHOME_WEB_PORT }}:80/tcp"
+      - "{{ ADGUARDHOME_DNS_PORT_TCP }}:53/tcp"
+      - "{{ ADGUARDHOME_DNS_PORT_UDP }}:53/udp"
     volumes:
-      - "{{DATA_ROOT}}/adguard-home/work:/opt/adguardhome/work"
-      - "{{DATA_ROOT}}/adguard-home/config:/opt/adguardhome/conf"
+      - "{{ CONFIG_BASE_PATH }}/adguardhome/work:/opt/adguardhome/work"
+      - "{{ CONFIG_BASE_PATH }}/adguardhome/conf:/opt/adguardhome/conf"
+    environment:
+      - "TZ={{ TZ }}"
+    restart: unless-stopped
+    user: "0:0"
     networks:
       - njorddeploy_net
 

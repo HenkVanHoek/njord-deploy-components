@@ -42,7 +42,8 @@
             "vaultwarden",
             "web-notepad",
             "adminer",
-            "phpmyadmin"
+            "phpmyadmin",
+            "litellm"
         ],
         "default_group": "general",
         "global_variables": [
@@ -53,6 +54,7 @@
             "DOTENV"
         ],
         "group_order": [
+            "AI & LLM Services",
             "dns_blocker",
             "general",
             "Smart Home & IoT",
@@ -75,6 +77,10 @@
             "Media Servers"
         ],
         "group_rules": {
+            "AI & LLM Services": {
+                "is_exclusive": false,
+                "name": "AI & LLM Services"
+            },
             "Chat": {
                 "is_exclusive": false,
                 "name": "Chat"
@@ -171,12 +177,13 @@
             "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a \u201cblack hole\u201d, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
             "docker_service_name": "adguardhome",
             "group": "dns_blocker",
-            "has_configuration": false,
+            "has_configuration": true,
             "has_traefik_support": true,
             "has_ui": true,
             "image_name": "adguard/adguardhome",
             "name": "AdGuard Home",
             "package_id": null,
+            "project_url": "https://adguard.com/en/adguard-home/overview.html",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
@@ -236,6 +243,7 @@
             "has_ui": true,
             "image_name": "ghcr.io/advplyr/audiobookshelf",
             "name": "Audiobookshelf",
+            "project_url": "https://www.audiobookshelf.org/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "100m",
@@ -325,6 +333,7 @@
             "image_name": "jitsi/web",
             "name": "jitsi-meet",
             "package_id": "general-stack",
+            "project_url": "https://jitsi.org/",
             "protocol": "https",
             "resource_profile": {
                 "cpu": "high",
@@ -355,6 +364,7 @@
             "image_name": "filebrowser/filebrowser",
             "name": "Filebrowser",
             "package_id": "caddy-filebrowser-stack",
+            "project_url": "https://filebrowser.org/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "low",
@@ -435,6 +445,7 @@
             "image_name": "ghcr.io/qdm12/gluetun",
             "name": "Gluetun",
             "package_id": "media-stack",
+            "project_url": "https://github.com/qdm12/gluetun",
             "protocol": null,
             "tags": [
                 "vpn",
@@ -462,6 +473,7 @@
             "image_name": "grafana/grafana-oss",
             "name": "Grafana Stack",
             "package_id": "monitoring-stack",
+            "project_url": "https://grafana.com/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
@@ -590,6 +602,7 @@
             "image_name": "ghcr.io/gethomepage/homepage",
             "name": "Homepage",
             "package_id": null,
+            "project_url": "https://gethomepage.dev/",
             "protocol": "http",
             "tags": [
                 "dashboard",
@@ -661,6 +674,7 @@
             "has_ui": false,
             "name": "LoRa Letterbox Notifier",
             "package_id": null,
+            "project_url": "https://github.com/HenkVanHoek/lora-letterbox-notifier",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
@@ -668,6 +682,35 @@
             },
             "tags": [],
             "traefik_internal_port": null
+        },
+        "litellm": {
+            "ai_instructions": "Make sure to include hostyourai along with gemini and ollama.",
+            "component_version": "main-stable",
+            "config_templates": {
+                "config.yaml": "litellm/config.yaml"
+            },
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "LiteLLM is an AI gateway and LLM proxy that unifies access to 100+ Large Language Models (OpenAI, Gemini, Anthropic, Ollama, Azure, Bedrock, HostYourAI) behind a single OpenAI-compatible API format.",
+            "docker_service_name": "litellm",
+            "group": "AI & LLM Services",
+            "has_configuration": true,
+            "has_traefik_support": true,
+            "has_ui": true,
+            "image_name": "ghcr.io/berriai/litellm",
+            "name": "LiteLLM AI Gateway",
+            "package_id": null,
+            "project_url": "https://github.com/BerriAI/litellm",
+            "protocol": "http",
+            "tags": [
+                "AI",
+                "LLM",
+                "Gateway",
+                "Router",
+                "Proxy"
+            ],
+            "traefik_internal_port": 4000,
+            "ui_port_variable": "LITELLM_WEB_PORT"
         },
         "microbin": {
             "conflicts_with": [],
@@ -681,6 +724,7 @@
             "image_name": "danielszabo99/microbin",
             "name": "Microbin",
             "package_id": "general-stack",
+            "project_url": "https://microbin.eu/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "low",
@@ -710,6 +754,7 @@
             "has_ui": true,
             "image_name": "docker.n8n.io/n8nio/n8n",
             "name": "n8n",
+            "project_url": "https://n8n.io/",
             "protocol": "http",
             "ui_port_variable": "N8N_WEB_PORT"
         },
@@ -727,6 +772,7 @@
             "has_ui": true,
             "name": "Nextcloud",
             "package_id": "nextcloud-stack",
+            "project_url": "https://nextcloud.com/",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
@@ -895,6 +941,7 @@
             "has_ui": true,
             "name": "OctoPrint",
             "package_id": null,
+            "project_url": "https://octoprint.org/",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
@@ -911,13 +958,14 @@
             "depends_on": [],
             "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform designed to operate entirely offline. It supports various LLM runners like Ollama and OpenAI-compatible APIs, with built-in inference engine for RAG. This component bundles Open WebUI with Ollama for a complete, self-contained AI solution. Both services run as root (user: 0:0) to ensure proper file permissions for persistent data volumes.",
             "docker_service_name": "open-webui",
-            "group": "Productivity",
+            "group": "AI & LLM Services",
             "has_configuration": false,
             "has_traefik_support": true,
             "has_ui": true,
             "image_name": "ghcr.io/open-webui/open-webui",
             "name": "Open WebUI with Ollama",
             "package_id": null,
+            "project_url": "https://openwebui.com/",
             "protocol": "http",
             "tags": [
                 "AI",
@@ -1027,6 +1075,7 @@
             "image_name": "pish-fluffychat-web",
             "name": "FluffyChat Web",
             "package_id": "general-stack",
+            "project_url": "https://fluffychat.im/",
             "required_variables": [
                 {
                     "default": "8080",
@@ -1131,6 +1180,7 @@
             "image_name": "prom/prometheus",
             "name": "Prometheus Stack",
             "package_id": "monitoring-stack",
+            "project_url": "https://prometheus.io/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
@@ -1179,6 +1229,7 @@
             "intent_questions": [],
             "name": "Prosody",
             "package_id": null,
+            "project_url": "https://prosody.im/",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
@@ -1202,6 +1253,7 @@
             "image_name": "lscr.io/linuxserver/prowlarr",
             "name": "Prowlarr",
             "package_id": "media-stack",
+            "project_url": "https://prowlarr.com/",
             "protocol": "http",
             "tags": [
                 "media",
@@ -1327,6 +1379,7 @@
             "has_ui": true,
             "image_name": "semaphoreui/semaphore",
             "name": "Semaphore UI",
+            "project_url": "https://semaphoreui.com/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "500m",
@@ -1381,6 +1434,7 @@
             "has_ui": true,
             "image_name": "stirlingtools/stirling-pdf",
             "name": "Stirling PDF",
+            "project_url": "https://stirlingpdf.com/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "250m",
@@ -1487,6 +1541,7 @@
             "intent_questions": [],
             "name": "Uptime Kuma",
             "package_id": null,
+            "project_url": "https://uptime.kuma.pet/",
             "resource_profile": {
                 "cpu": "medium",
                 "ram": "medium",
@@ -1534,6 +1589,7 @@
             "has_ui": true,
             "image_name": "ghcr.io/jamiepine/voicebox",
             "name": "Voicebox",
+            "project_url": "https://github.com/HenkVanHoek/njord-deploy",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "4",
@@ -1604,38 +1660,6 @@
                 "self-hosted"
             ],
             "traefik_internal_port": null
-        },
-        "adguardhome": {
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "AdGuard Home is a network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a \u201cblack hole\u201d, thus preventing your devices from connecting to those servers. It can run without root privileges but requires root to bind to privileged ports like 53 (DNS).",
-            "docker_service_name": "adguardhome",
-            "group": "dns_blocker",
-            "has_configuration": true,
-            "has_traefik_support": true,
-            "has_ui": true,
-            "image_name": "adguard/adguardhome",
-            "name": "AdGuard Home",
-            "package_id": null,
-            "protocol": "http",
-            "resource_profile": {
-                "cpu": "medium",
-                "ram": "medium",
-                "recommended_cores": null,
-                "recommended_ram_mb": null,
-                "recommended_storage_gb": null,
-                "storage_type": "persistent"
-            },
-            "tags": [
-                "dns",
-                "adblock",
-                "privacy",
-                "security"
-            ],
-            "test_status": "beta",
-            "traefik_internal_port": 3000,
-            "ui_port_variable": "ADGUARDHOME_WEB_PORT"
         }
     },
     "packages": {
