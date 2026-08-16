@@ -1,6 +1,6 @@
-# status: beta
-# last_tested_version: main-stable
-# platform_notes: none
+# status: "tested"
+# last_tested_version: "main-stable"
+# platform_notes: "Tested on Proxmox LXC: docker (2023-07-01-preview, 2026-08-15), podman (16.15-1.pgdg13+2, 2026-08-15); Proxmox VM: docker (2023-07-01-preview, 2026-08-15), podman (main-stable, 2026-08-15)."
 # breaking_changes: none
 services:
   litellm:
@@ -22,6 +22,8 @@ services:
       - "AZURE_API_BASE={{ AZURE_API_BASE }}"
       - "AZURE_API_VERSION={{ AZURE_API_VERSION }}"
       - "GEMINI_API_KEY={{ GEMINI_API_KEY }}"
+      - "HOSTYOURAI_API_KEY={{ HOSTYOURAI_API_KEY }}"
+      - "HOSTYOURAI_API_BASE={{ HOSTYOURAI_API_BASE }}"
       - "AWS_ACCESS_KEY_ID={{ AWS_ACCESS_KEY_ID }}"
       - "AWS_SECRET_ACCESS_KEY={{ AWS_SECRET_ACCESS_KEY }}"
       - "AWS_REGION_NAME={{ AWS_REGION_NAME }}"

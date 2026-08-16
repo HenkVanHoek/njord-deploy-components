@@ -86,6 +86,20 @@
         },
         {
             "default": "",
+            "description": "Your HostYourAI API Key for accessing models on HostYourAI.",
+            "id": "HOSTYOURAI_API_KEY",
+            "label": "HostYourAI API Key",
+            "type": "password"
+        },
+        {
+            "default": "https://api.hostyourai.com/v1",
+            "description": "The API Base URL for your HostYourAI instance or gateway endpoint.",
+            "id": "HOSTYOURAI_API_BASE",
+            "label": "HostYourAI API Base URL",
+            "type": "text"
+        },
+        {
+            "default": "",
             "description": "Your AWS Access Key ID. Required for using AWS Bedrock/Sagemaker models. This key will be available as an environment variable for LiteLLM.",
             "id": "AWS_ACCESS_KEY_ID",
             "label": "AWS Access Key ID",
