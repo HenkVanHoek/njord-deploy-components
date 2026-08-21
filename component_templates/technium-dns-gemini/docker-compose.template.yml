@@ -1,0 +1,40 @@
+# status: "beta"
+# last_tested_version: latest
+# platform_notes: none
+# breaking_changes: none
+services:
+  dns-server:
+    container_name: njorddeploy-dns-server
+    hostname: dns-server
+    image: "{{ image_name }}:{{ component_version }}"
+    ports:
+      - "{{ DNS_WEB_CONSOLE_PORT }}:5380/tcp" # DNS web console (HTTP)
+      - "{{ DNS_UDP_PORT }}:53/udp" # DNS service
+      - "{{ DNS_TCP_PORT }}:53/tcp" # DNS service
+      - "{{ DNS_DOT_PORT }}:853/tcp" # DNS-over-TLS service
+      - "{{ DNS_DOH_PORT }}:443/tcp" # DNS-over-HTTPS service
+      - "{{ DNS_DOQ_PORT }}:853/udp" # DNS-over-QUIC service
+    environment:
+      - "DNS_SERVER_DOMAIN={{ DNS_SERVER_DOMAIN }}"
+      - "DNS_SERVER_ADMIN_PASSWORD={{ DNS_ADMIN_PASSWORD }}"
+      - "DNS_SERVER_WEB_SERVICE_HTTP_PORT=5380"
+      - "DNS_SERVER_LOG_FOLDER_PATH=/var/log/technitium/dns"
+      - "DNS_SERVER_ENABLE_BLOCKING={{ DNS_ENABLE_BLOCKING }}"
+      - "DNS_SERVER_BLOCK_LIST_URLS={{ DNS_BLOCK_LIST_URLS }}"
+      - "DNS_SERVER_FORWARDERS={{ DNS_FORWARDERS }}"
+      - "DNS_SERVER_FORWARDER_PROTOCOL={{ DNS_FORWARDER_PROTOCOL }}"
+      - "DNS_SERVER_RECURSION={{ DNS_RECURSION_MODE }}"
+      - "DNS_SERVER_RECURSION_NETWORK_ACL={{ DNS_RECURSION_ACL }}"
+      - "DNS_SERVER_LOG_USING_LOCAL_TIME=true"
+      - "DNS_SERVER_LOG_MAX_LOG_FILE_DAYS={{ DNS_LOG_MAX_DAYS }}"
+      - "DNS_SERVER_PREFER_IPV6={{ DNS_PREFER_IPV6 }}"
+    volumes:
+      - "{{ CONFIG_BASE_PATH }}/technitium-dns/config:/etc/dns"
+      - "{{ CONFIG_BASE_PATH }}/technitium-dns/logs:/var/log/technitium/dns"
+    user: "0:0"
+    networks:
+      - njorddeploy_net
+
+networks:
+  njorddeploy_net:
+    external: true

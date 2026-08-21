@@ -1,0 +1,32 @@
+# status: beta
+# last_tested_version: latest
+# platform_notes: Works on Docker and Podman with standard port mappings. For DHCP, use host network mode.
+# breaking_changes: none
+services:
+  dns-server:
+    container_name: njorddeploy-dns-server
+    image: "{{ image_name }}:{{ component_version }}"
+    user: "0:0"
+    ports:
+      - "{{ DNS_WEB_PORT }}:5380/tcp"
+      - "{{ DNS_UDP_PORT }}:53/udp"
+      - "{{ DNS_TCP_PORT }}:53/tcp"
+    environment:
+      - "DNS_SERVER_DOMAIN=dns-server"
+      - "DNS_SERVER_LOG_FOLDER_PATH=/var/log/technitium/dns"
+      - "DNS_SERVER_RECURSION=AllowOnlyForPrivateNetworks"
+      - "DNS_SERVER_ENABLE_BLOCKING={{ DNS_ENABLE_BLOCKING }}"
+      - "DNS_SERVER_BLOCK_LIST_URLS={{ DNS_BLOCK_LIST_URLS }}"
+      - "DNS_SERVER_FORWARDERS={{ DNS_FORWARDERS }}"
+      - "DNS_SERVER_FORWARDER_PROTOCOL={{ DNS_FORWARDER_PROTOCOL }}"
+      - "DNS_SERVER_ADMIN_PASSWORD={{ DNS_ADMIN_PASSWORD }}"
+    volumes:
+      - "{{ CONFIG_BASE_PATH }}/technitium-dns/config:/etc/dns"
+      - "{{ CONFIG_BASE_PATH }}/technitium-dns/logs:/var/log/technitium/dns"
+    restart: unless-stopped
+    networks:
+      - njorddeploy_net
+
+networks:
+  njorddeploy_net:
+    external: true

@@ -1,0 +1,18 @@
+{
+  "dnsServer": {
+    "domain": "{{ DNS_SERVER_DOMAIN }}",
+    "adminPassword": "{{ DNS_ADMIN_PASSWORD }}",
+    "recursion": "{{ DNS_RECURSION_MODE }}",
+    "forwarders": [
+      {
+        "address": "1.1.1.1",
+        "protocol": "Tcp"
+      },
+      {
+        "address": "8.8.8.8",
+        "protocol": "Tcp"
+      }
+    ],
+    "logFolderPath": "/var/log/technitium/dns"
+  }
+}
