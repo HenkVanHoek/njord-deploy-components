@@ -330,43 +330,6 @@
             "traefik_internal_port": null,
             "ui_port_variable": null
         },
-        "dnsserver": {
-            "ai_instructions": "Noem de de component Technitium-Loes",
-            "component_version": "latest",
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "Technitium DNS Server is an open source authoritative and recursive DNS server for privacy and security. It provides a web console for configuration, supports DNS-over-TLS, DNS-over-HTTPS, DNS-over-QUIC, ad-blocking, and more. The Docker image runs as root by default (user: 0:0) to manage permissions on mounted volumes. It requires access to UDP/TCP port 53 for DNS and port 5380 for the web UI.",
-            "docker_service_name": "dns-server",
-            "group": "dns_blocker",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "docker.io/technitium/dns-server",
-            "last_updated": "2026-08-20T19:46:31.636553+00:00",
-            "name": "Technitium-Loes",
-            "package_id": null,
-            "protocol": "http",
-            "supported_matrix": {
-                "engines": [
-                    "docker",
-                    "podman"
-                ],
-                "modes": [
-                    "lxc",
-                    "vm"
-                ],
-                "notes": "Requires UDP/TCP port 53 and web port 5380. Works in LXC and VM with standard port mappings."
-            },
-            "tags": [
-                "dns",
-                "ad-block",
-                "privacy",
-                "recursive",
-                "authoritative"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "DNS_WEB_PORT"
-        },
         "docker-jitsi-meet": {
             "conflicts_with": [],
             "depends_on": [],
@@ -1694,51 +1657,26 @@
             "test_status": "tested",
             "ui_port_variable": "STIRLING_PDF_HTTP_PORT"
         },
-        "technitium-dns-qwn3-coder-latest": {
-            "component_version": "latest",
-            "config_templates": {
-                "config.json": "technitium-dns-qwn3-coder-latest/config.json"
-            },
-            "conflicts_with": [],
-            "depends_on": [],
-            "description": "An open source authoritative and recursive DNS server for privacy & security. Works out-of-the-box with no or minimal configuration. Provides a user friendly web console accessible using any modern web browser. Supports DNS-over-TLS, DNS-over-HTTPS, and DNS-over-QUIC protocols. Requires root access for persistent storage and network operations.",
-            "docker_service_name": "njorddeploy-dns-server",
-            "group": "dns_blocker",
-            "has_configuration": true,
-            "has_traefik_support": false,
-            "has_ui": true,
-            "image_name": "technitium/dns-server",
-            "last_updated": "2026-08-21T07:30:32.858133+00:00",
-            "name": "Technitium DNS Server qwen3-coder latest",
-            "package_id": null,
-            "protocol": "http",
-            "tags": [
-                "dns",
-                "privacy",
-                "security",
-                "ad-blocking",
-                "recursive-dns",
-                "authoritative-dns"
-            ],
-            "traefik_internal_port": null,
-            "ui_port_variable": "DNS_WEB_PORT"
-        },
-        "technium-dns-gemini": {
+        "technitium-dns": {
             "ai_instructions": null,
             "component_version": "latest",
-            "conflicts_with": [],
+            "conflicts_with": [
+                "adguard-home",
+                "pi-hole"
+            ],
             "depends_on": [],
-            "description": "Self-host a DNS server for privacy & security. Block ads & malware at the DNS level for your entire network! Provides a user-friendly web console. This component runs as root (user: 0:0) to ensure proper file permissions for its configuration and log directories.",
-            "docker_service_name": "dns-server",
+            "description": "Technitium DNS Server is an open source authoritative and recursive DNS server for privacy & security. It features built-in ad and malware blocking, supports DNS-over-TLS (DoT), DNS-over-HTTPS (DoH), and DNS-over-QUIC (DoQ), and provides a comprehensive web management console.",
+            "docker_service_name": "technitium-dns",
             "group": "dns_blocker",
             "has_configuration": true,
             "has_traefik_support": true,
             "has_ui": true,
-            "image_name": "docker.io/technitium/dns-server",
+            "image_name": "technitium/dns-server",
             "last_tested": "2026-08-21T07:30:57.816579+00:00",
-            "last_updated": "2026-08-21T07:30:57.816590+00:00",
-            "name": "Technitium DNS Server Gemini",
+            "last_updated": "2026-08-21T10:04:00.000000+00:00",
+            "name": "Technitium DNS Server",
             "package_id": null,
+            "project_url": "https://technitium.com/dns/",
             "protocol": "http",
             "resource_profile": {
                 "cpu": "medium",
@@ -1766,7 +1704,7 @@
                 "security",
                 "network"
             ],
-            "test_status": "beta",
+            "test_status": "tested",
             "traefik_internal_port": 5380,
             "ui_port_variable": "DNS_WEB_CONSOLE_PORT"
         },
@@ -1782,7 +1720,7 @@
             "image_name": "traefik",
             "intent_questions": [],
             "last_tested": "2026-08-16T09:09:37.568697+00:00",
-            "last_updated": "2026-08-21T09:11:30.893670+00:00",
+            "last_updated": "2026-08-21T10:08:48.996410+00:00",
             "name": "Traefik",
             "package_id": null,
             "project_url": "https://traefik.io/traefik/",
