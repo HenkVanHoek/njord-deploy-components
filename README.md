@@ -38,8 +38,19 @@ All template files (e.g., `docker-compose.template.yml`) must start with the fol
 - **status**: Can be `untested`, `testing`, `tested`, or `deprecated`.
 - **platform_notes**: Specifically notes platform details (for example, "Targeted for ARM architecture." if the container runs on Raspberry Pi architecture).
 
+## Component Governance & Admission Policy
+
+To prevent a proliferation of rarely or never used components ("wildgroei"), the following governance policy is strictly enforced:
+1. **Product Owner Approval:** Only components explicitly approved by the Product Owner will be admitted to the official repository.
+2. **Admission Criteria:** Components must represent popular, active, and highly-requested self-hosted services that fit the Raspberry Pi/SBC ecosystem.
+3. **Quality & Testing:** Any new or modified component must pass all static syntax validation and a full Proxmox integration test (marked as `status: "tested"`) before admission.
+4. **Contribution Workflow:** External developers must submit updates or new components via GitHub Pull Requests (PRs). Direct pushing to the `main` branch is restricted to the Product Owner.
+
 ## Contributing
 
 1. Clone this repository or edit via the **NjordDeploy Component Editor**.
 2. Add your component and write standard docker compose templates.
 3. Validate templates using the linter within the Component Editor before pushing.
+
+### AI-Assisted Bootstrapping
+To quickly add new components, you can use the **AI-Assisted Component Generator** ("Create with AI") in the Component Editor. By specifying a GitHub repository URL, the editor automatically fetches the `README.md` and any `docker-compose.yml` files from the repository, using Google Gemini to automatically generate and pre-validate the metadata, variables, and Docker Compose template.
