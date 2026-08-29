@@ -1,10 +1,10 @@
 {
     "variables": [
         {
-            "default": "19999",
+            "default": "5050",
             "description": "Web UI dashboard port.",
-            "id": "NETDATA_WEB_PORT",
-            "label": "Netdata Web Port",
+            "id": "PGADMIN_WEB_PORT",
+            "label": "pgAdmin Web Port",
             "type": "port"
         }
     ]
