@@ -1,10 +1,10 @@
 {
     "variables": [
         {
-            "default": "8098",
+            "default": "8686",
             "description": "Web UI port.",
-            "id": "NOCODB_WEB_PORT",
-            "label": "NocoDB Web Port",
+            "id": "LIDARR_WEB_PORT",
+            "label": "Lidarr Web Port",
             "type": "port"
         }
     ]

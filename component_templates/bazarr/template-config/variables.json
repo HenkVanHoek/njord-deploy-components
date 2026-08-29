@@ -1,10 +1,10 @@
 {
     "variables": [
         {
-            "default": "8098",
+            "default": "6767",
             "description": "Web UI port.",
-            "id": "NOCODB_WEB_PORT",
-            "label": "NocoDB Web Port",
+            "id": "BAZARR_WEB_PORT",
+            "label": "Bazarr Web Port",
             "type": "port"
         }
     ]
