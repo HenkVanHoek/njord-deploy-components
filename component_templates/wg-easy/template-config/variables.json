@@ -22,11 +22,11 @@
             "description": "Public domain name or external IP address that WireGuard clients will use to connect."
         },
         {
-            "id": "WG_PASSWORD",
-            "label": "Admin Web UI Password",
+            "id": "WG_PASSWORD_HASH",
+            "label": "Admin Web UI Password Hash (bcrypt)",
             "type": "password",
-            "default": "wireguard",
-            "description": "Password used to log in to the WireGuard Easy web management interface."
+            "default": "$2b$12$$EIo48nMxDtA344BrYKRqpO2upZR4EMxB0BsS4f3iQ2pLZ/11A7LOK",
+            "description": "Bcrypt password hash used to log in to the WireGuard Easy web management interface (default: SaxGitaar31!)."
         },
         {
             "id": "WG_DEFAULT_DNS",
