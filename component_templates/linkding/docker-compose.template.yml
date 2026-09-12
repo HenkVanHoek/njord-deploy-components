@@ -1,0 +1,19 @@
+# status: "tested"
+# last_tested_version: "latest"
+# platform_notes: "Tested on Proxmox LXC: docker (latest, 2026-09-12)."
+# breaking_changes: none
+services:
+  linkding:
+    image: "{{ image_name }}:{{ component_version }}"
+    container_name: njorddeploy-linkding
+    restart: unless-stopped
+    ports:
+      - "{{ LINKDING_WEB_PORT }}:9090"
+    volumes:
+      - "{{ CONFIG_BASE_PATH }}/linkding/data:/etc/linkding/data"
+    networks:
+      - njorddeploy_net
+
+networks:
+  njorddeploy_net:
+    external: true

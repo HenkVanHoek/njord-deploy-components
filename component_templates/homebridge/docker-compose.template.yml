@@ -1,0 +1,14 @@
+# status: "tested"
+# last_tested_version: "2026-09-02"
+# platform_notes: "Tested on Proxmox LXC: docker (2026-09-02, 2026-09-12)."
+# breaking_changes: none
+services:
+  homebridge:
+    image: "{{ image_name }}:{{ component_version }}"
+    container_name: njorddeploy-homebridge
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - TZ=UTC
+    volumes:
+      - "{{ CONFIG_BASE_PATH }}/homebridge:/homebridge"

@@ -410,6 +410,49 @@
             "traefik_internal_port": null,
             "ui_port_variable": "ADMINER_WEB_PORT"
         },
+        "apprise": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Push notification gateway for over 90 notification services (Telegram, Discord, Pushover, etc.).",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/caronc/apprise-api",
+                "log_token_regex": null,
+                "onboarding_guide": "Use the Apprise API to trigger universal multi-platform push notifications.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "caronc/apprise",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:24:34.594414+00:00",
+            "last_tested_version": "1.5.4",
+            "last_updated": "2026-09-12T07:24:34.594428+00:00",
+            "name": "Apprise API",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/caronc/apprise-api",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "notifications",
+                "push",
+                "alerts",
+                "webhooks"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8000",
+            "ui_port_variable": "APPRISE_WEB_PORT"
+        },
         "audiobookshelf": {
             "conflicts_with": [],
             "depends_on": [],
@@ -508,6 +551,50 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "BESZEL_WEB_PORT"
+        },
+        "bookstack": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Simple, self-hosted, easy-to-use platform for organizing and storing documentation and wikis in book format.",
+            "first_run_info": {
+                "auth_type": "credentials",
+                "default_username": "admin@admin.com",
+                "doc_url": "https://www.bookstackapp.com/docs/",
+                "log_token_regex": null,
+                "onboarding_guide": "Initial credentials: admin@admin.com with password 'password'. Change immediately upon login.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "lscr.io/linuxserver/bookstack",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:55:28.773757+00:00",
+            "last_tested_version": "v26.05.4-ls283",
+            "last_updated": "2026-09-12T07:55:28.773768+00:00",
+            "name": "BookStack",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://www.bookstackapp.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "wiki",
+                "documentation",
+                "knowledge",
+                "books",
+                "notes"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "80",
+            "ui_port_variable": "BOOKSTACK_WEB_PORT"
         },
         "caddy": {
             "component_version": "latest",
@@ -696,6 +783,92 @@
             "test_status": "tested",
             "ui_port_variable": "CYBERCHEF_WEB_PORT"
         },
+        "dashdot": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Modern server dashboard for displaying CPU, RAM, storage, and network statistics.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://getdashdot.com/",
+                "log_token_regex": null,
+                "onboarding_guide": "Open Dashdot to view animated, real-time hardware gauges of your server.",
+                "token_label": null
+            },
+            "group": "Dashboards",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "mauricenino/dashdot",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:24:55.653876+00:00",
+            "last_tested_version": "6.3.4",
+            "last_updated": "2026-09-12T07:24:55.653892+00:00",
+            "name": "Dashdot",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://getdashdot.com/",
+            "protocol": "http",
+            "requires_root": true,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "dashboard",
+                "monitoring",
+                "hardware",
+                "stats"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "3001",
+            "ui_port_variable": "DASHDOT_WEB_PORT"
+        },
+        "diun": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "CLI application to analyze Docker images and send notifications when image updates are published.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://crazymax.dev/diun/",
+                "log_token_regex": null,
+                "onboarding_guide": "Diun operates autonomously in background to check container updates daily.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "crazymax/diun",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:25:19.079938+00:00",
+            "last_tested_version": "4.33.0",
+            "last_updated": "2026-09-12T07:25:19.079950+00:00",
+            "name": "Diun (Update Notifier)",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://crazymax.dev/diun/",
+            "protocol": "http",
+            "requires_root": true,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "docker",
+                "updates",
+                "notifications",
+                "management"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "DIUN_PROMETHEUS_PORT"
+        },
         "docker-jitsi-meet": {
             "conflicts_with": [],
             "depends_on": [],
@@ -769,6 +942,93 @@
             "test_status": "tested",
             "ui_port_variable": "DOCKGE_WEB_PORT"
         },
+        "docmost": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Modern open-source collaborative wiki and knowledge-base alternative to Notion and Confluence.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": null,
+                "doc_url": "https://docmost.com/docs",
+                "log_token_regex": null,
+                "onboarding_guide": "Create your initial administrative account and setup workspace spaces.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "docmost/docmost",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:31:49.937313+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:31:49.937332+00:00",
+            "name": "Docmost",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://docmost.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "wiki",
+                "notion",
+                "confluence",
+                "notes",
+                "markdown"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "3000",
+            "ui_port_variable": "DOCMOST_WEB_PORT"
+        },
+        "dozzle": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Real-time, lightweight log viewer for Docker containers with web UI and live search.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://dozzle.dev/guide/getting-started",
+                "log_token_regex": null,
+                "onboarding_guide": "Dozzle connects directly to your local container engine. Open the web UI to inspect logs.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "amir20/dozzle",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T06:58:49.011912+00:00",
+            "last_tested_version": "v11.0.0",
+            "last_updated": "2026-09-12T06:58:49.011924+00:00",
+            "name": "Dozzle",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://dozzle.dev/",
+            "protocol": "http",
+            "requires_root": true,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "docker",
+                "logs",
+                "monitoring",
+                "management"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "DOZZLE_WEB_PORT"
+        },
         "drawio": {
             "category": "Productivity",
             "conflicts_with": [],
@@ -798,6 +1058,50 @@
             "test_status": "tested",
             "ui_port_variable": "DRAWIO_WEB_PORT"
         },
+        "duplicati": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Encrypted, incremental, and deduplicated backup client for cloud storage and local drives.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": null,
+                "doc_url": "https://duplicati.readthedocs.io/",
+                "log_token_regex": null,
+                "onboarding_guide": "Configure your master encryption password and create scheduled backup jobs.",
+                "token_label": null
+            },
+            "group": "Cloud & Storage",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "linuxserver/duplicati",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T08:17:52.409804+00:00",
+            "last_tested_version": "v2.4.0.0_stable_2026-09-03-ls307",
+            "last_updated": "2026-09-12T08:17:52.409817+00:00",
+            "name": "Duplicati",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://www.duplicati.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "backup",
+                "encryption",
+                "cloud",
+                "restore",
+                "storage"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8200",
+            "ui_port_variable": "DUPLICATI_WEB_PORT"
+        },
         "esphome": {
             "category": "Smart Home & IoT",
             "conflicts_with": [],
@@ -826,6 +1130,93 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "ESPHOME_WEB_PORT"
+        },
+        "etherpad": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Highly customizable open source online editor providing collaborative real-time editing.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://etherpad.org/doc/v1.9.0/",
+                "log_token_regex": null,
+                "onboarding_guide": "Etherpad is immediately ready for multi-user simultaneous document editing.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "etherpad/etherpad",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:32:21.555045+00:00",
+            "last_tested_version": "3.3.3",
+            "last_updated": "2026-09-12T07:32:21.555058+00:00",
+            "name": "Etherpad Lite",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://etherpad.org/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "notes",
+                "collaboration",
+                "realtime",
+                "editor"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "9001",
+            "ui_port_variable": "ETHERPAD_WEB_PORT"
+        },
+        "evcc": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Extensible EV Charge Controller with support for solar/PV charging and dynamic tariffs.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://docs.evcc.io/",
+                "log_token_regex": null,
+                "onboarding_guide": "Open evcc dashboard to monitor PV power and configure vehicle charging modes.",
+                "token_label": null
+            },
+            "group": "Smart Home & IoT",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "evcc/evcc",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T08:01:46.258832+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T08:01:46.258843+00:00",
+            "name": "evcc",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://evcc.io/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "ev",
+                "solar",
+                "energy",
+                "smart-home",
+                "charging"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "7070",
+            "ui_port_variable": "EVCC_WEB_PORT"
         },
         "excalidraw": {
             "category": "Productivity",
@@ -893,6 +1284,49 @@
             "test_status": "tested",
             "traefik_internal_port": null,
             "ui_port_variable": "FILEBROWSER_WEB_PORT"
+        },
+        "firefly-iii": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Free and open source personal finance manager to track expenses, income, budgets, and bank accounts.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": null,
+                "doc_url": "https://docs.firefly-iii.org/",
+                "log_token_regex": null,
+                "onboarding_guide": "Open the Firefly III web UI and register your primary administrative user profile.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "fireflyiii/core",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:09:51.087144+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:09:51.087155+00:00",
+            "name": "Firefly III",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://www.firefly-iii.org/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "finance",
+                "budget",
+                "accounting",
+                "expenses"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "FIREFLY_III_WEB_PORT"
         },
         "flatnotes": {
             "category": "Productivity",
@@ -1088,6 +1522,52 @@
             ],
             "test_status": "tested",
             "traefik_internal_port": null
+        },
+        "glance": {
+            "component_version": "latest",
+            "config_templates": {
+                "glance.yml": "glance/glance.yml"
+            },
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Extremely fast, self-contained dashboard written in Go for server feeds, weather, bookmarks, and services.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/glanceapp/glance/blob/main/docs/configuration.md",
+                "log_token_regex": null,
+                "onboarding_guide": "Glance loads your dashboard from glance.yml. Edit widgets and layout via the config file.",
+                "token_label": null
+            },
+            "group": "Dashboards",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "glanceapp/glance",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:10:16.754316+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:10:16.754326+00:00",
+            "name": "Glance Dashboard",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/glanceapp/glance",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "dashboard",
+                "homepage",
+                "feeds",
+                "minimal"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "GLANCE_WEB_PORT"
         },
         "gluetun": {
             "component_version": "latest",
@@ -1426,6 +1906,49 @@
             "traefik_internal_port": 8123,
             "ui_port_variable": "HA_PORT"
         },
+        "homebridge": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Lightweight NodeJS server that emulates the iOS HomeKit API for non-supported smart home accessories.",
+            "first_run_info": {
+                "auth_type": "credentials",
+                "default_username": "admin",
+                "doc_url": "https://homebridge.io/",
+                "log_token_regex": null,
+                "onboarding_guide": "Login with default admin / admin credentials and scan the QR code using Apple Home app.",
+                "token_label": null
+            },
+            "group": "Smart Home & IoT",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "homebridge/homebridge",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T08:02:26.183083+00:00",
+            "last_tested_version": "2026-09-02",
+            "last_updated": "2026-09-12T08:02:26.183097+00:00",
+            "name": "Homebridge",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://homebridge.io/",
+            "protocol": "http",
+            "requires_root": true,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "homekit",
+                "iot",
+                "apple",
+                "smart-home"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8581",
+            "ui_port_variable": "HOMEBRIDGE_WEB_PORT"
+        },
         "homepage": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -1706,6 +2229,50 @@
             "traefik_internal_port": 5000,
             "ui_port_variable": "KAVITA_WEB_PORT"
         },
+        "komga": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Free and open source media server for your comics, mangas, BDs, and book collections.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": "admin",
+                "doc_url": "https://komga.org/installation/docker.html",
+                "log_token_regex": null,
+                "onboarding_guide": "Set up your administrator account and create your first library path in Komga.",
+                "token_label": null
+            },
+            "group": "Media & Streaming",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "gotson/komga",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:05:21.939905+00:00",
+            "last_tested_version": "26.04",
+            "last_updated": "2026-09-12T07:05:21.939918+00:00",
+            "name": "Komga",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://komga.org/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "comics",
+                "manga",
+                "books",
+                "media",
+                "reader"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "25600",
+            "ui_port_variable": "KOMGA_WEB_PORT"
+        },
         "librechat": {
             "ai_instructions": "Multi-model AI chat platform. LibreChat web app (ghcr.io/danny-avila/librechat:latest) on port LIBRECHAT_WEB_PORT: 3080 (container port 3080). MongoDB backend (mongo:6.0) as librechat-mongodb on port 27017. Required env: MONGO_URI=mongodb://njorddeploy-librechat-mongodb:27017/LibreChat, PORT=3080, HOST=0.0.0.0, JWT_SECRET, JWT_REFRESH_TOKEN_SECRET, CREDS_KEY, CREDS_IV. Persistent volume for MongoDB data. user: \"0:0\" for volume permissions. Group: AI.",
             "component_version": "latest",
@@ -1785,6 +2352,49 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "LIDARR_WEB_PORT"
+        },
+        "linkding": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Minimal, fast, and privacy-focused bookmark manager designed for speed.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": "admin",
+                "doc_url": "https://linkding.link/",
+                "log_token_regex": null,
+                "onboarding_guide": "Visit linkding and follow initial setup to manage and tag your bookmarks.",
+                "token_label": null
+            },
+            "group": "News & Bookmarks",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "sissbruecker/linkding",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:15:14.993318+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:15:14.993330+00:00",
+            "name": "linkding",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/sissbruecker/linkding",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "bookmarks",
+                "search",
+                "reading",
+                "privacy"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "9090",
+            "ui_port_variable": "LINKDING_WEB_PORT"
         },
         "litellm": {
             "ai_instructions": "Make sure to include hostyourai along with gemini and ollama.",
@@ -1930,6 +2540,50 @@
             "test_status": "tested",
             "ui_port_variable": "MEMOS_WEB_PORT"
         },
+        "metube": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Web GUI for yt-dlp with playlist support and audio/video download format selection.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/alexta69/metube",
+                "log_token_regex": null,
+                "onboarding_guide": "Paste any YouTube, Vimeo or audio URL into MeTube to download locally.",
+                "token_label": null
+            },
+            "group": "Media & Streaming",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "alexta69/metube",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T08:02:56.020493+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T08:02:56.020504+00:00",
+            "name": "MeTube",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/alexta69/metube",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "youtube",
+                "downloader",
+                "video",
+                "yt-dlp",
+                "media"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8081",
+            "ui_port_variable": "METUBE_WEB_PORT"
+        },
         "microbin": {
             "conflicts_with": [],
             "depends_on": [],
@@ -1973,6 +2627,49 @@
             "traefik_internal_port": null,
             "ui_port_variable": "MICROBIN_PORT"
         },
+        "miniflux": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Minimalist, fast, and opinionated RSS feed reader written in Go.",
+            "first_run_info": {
+                "auth_type": "credentials",
+                "default_username": "admin",
+                "doc_url": "https://miniflux.app/docs/",
+                "log_token_regex": null,
+                "onboarding_guide": "Log in with username admin and the configured initial password.",
+                "token_label": null
+            },
+            "group": "News & Bookmarks",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "miniflux/miniflux",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:22:00.598254+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:22:00.598285+00:00",
+            "name": "Miniflux",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://miniflux.app/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "rss",
+                "news",
+                "feeds",
+                "minimal"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "MINIFLUX_WEB_PORT"
+        },
         "minio": {
             "category": "Storage",
             "conflicts_with": [],
@@ -2001,6 +2698,45 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "MINIO_CONSOLE_PORT"
+        },
+        "mosquitto": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Lightweight and widely used open source MQTT message broker for IoT, Home Assistant, and smart home sensor integration.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://mosquitto.org/documentation/",
+                "log_token_regex": null,
+                "onboarding_guide": "Mosquitto MQTT broker is running on port 1883. Connect Home Assistant or your IoT clients directly.",
+                "token_label": null
+            },
+            "group": "Smart Home & IoT",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "eclipse-mosquitto",
+            "intent_questions": [],
+            "name": "Eclipse Mosquitto",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://mosquitto.org/",
+            "protocol": "tcp",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "low",
+                "ram": "low",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "self-hosted",
+                "iot",
+                "mqtt",
+                "smart-home"
+            ],
+            "traefik_internal_port": null,
+            "ui_port_variable": null
         },
         "n8n": {
             "component_version": "latest",
@@ -2630,6 +3366,49 @@
             "test_status": "tested",
             "traefik_internal_port": null
         },
+        "pairdrop": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Local file sharing in your browser across devices, fully compatible with Apple AirDrop workflows.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://pairdrop.net/",
+                "log_token_regex": null,
+                "onboarding_guide": "Open PairDrop in browsers on any local network devices to transfer files peer-to-peer.",
+                "token_label": null
+            },
+            "group": "Cloud & Storage",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "lscr.io/linuxserver/pairdrop",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:18:26.185459+00:00",
+            "last_tested_version": "v1.11.2-ls143",
+            "last_updated": "2026-09-12T07:18:26.185468+00:00",
+            "name": "PairDrop",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://pairdrop.net/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "sharing",
+                "airdrop",
+                "files",
+                "webrtc"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "3000",
+            "ui_port_variable": "PAIRDROP_WEB_PORT"
+        },
         "paperless-ngx": {
             "ai_instructions": "Multi-container document management and OCR stack. Main service ghcr.io/paperless-ngx/paperless-ngx:latest (njorddeploy-paperless-ngx) on port PAPERLESS_WEB_PORT: 8000. Broker redis:7-alpine (njorddeploy-paperless-broker). Database postgres:16-alpine (njorddeploy-paperless-db). Required env: PAPERLESS_REDIS=redis://njorddeploy-paperless-broker:6379, PAPERLESS_DBHOST=njorddeploy-paperless-db, PAPERLESS_DBNAME=paperless, PAPERLESS_DBUSER=paperless, PAPERLESS_DBPASS, PAPERLESS_SECRET_KEY (random secret), PAPERLESS_URL=http://localhost:8000, USERMAP_UID=0, USERMAP_GID=0. Volumes for data, media, export, consume. Group: Productivity.",
             "component_version": "latest",
@@ -2984,6 +3763,49 @@
             "traefik_internal_port": null,
             "ui_port_variable": "PORTAINER_WEB_PORT"
         },
+        "privatebin": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Zero-knowledge, client-side encrypted minimalist pastebin application.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://privatebin.info/",
+                "log_token_regex": null,
+                "onboarding_guide": "PrivateBin is ready immediately. Create and share client-side encrypted pastes.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "privatebin/nginx-fpm-alpine",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:18:52.439412+00:00",
+            "last_tested_version": "2.0.6",
+            "last_updated": "2026-09-12T07:18:52.439424+00:00",
+            "name": "PrivateBin",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://privatebin.info/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "pastebin",
+                "security",
+                "privacy",
+                "zero-knowledge"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "PRIVATEBIN_WEB_PORT"
+        },
         "prometheus": {
             "component_version": "v2.54.1",
             "config_templates": {
@@ -3226,6 +4048,47 @@
             "test_status": "tested",
             "ui_port_variable": "ROMM_WEB_PORT"
         },
+        "rustdesk-server": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Self-hosted rendezvous and relay server for RustDesk remote desktop clients.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://rustdesk.com/docs/en/self-host/",
+                "log_token_regex": null,
+                "onboarding_guide": "RustDesk server is active. Obtain your public key from /root/id_ed25519.pub in container.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "rustdesk/rustdesk-server",
+            "intent_questions": [],
+            "last_updated": "2026-09-12T06:46:13.384783+00:00",
+            "name": "RustDesk Server",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://rustdesk.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "remote-desktop",
+                "relay",
+                "vnc",
+                "anydesk",
+                "teamviewer"
+            ],
+            "traefik_internal_port": "21116",
+            "ui_port_variable": "RUSTDESK_HBBS_PORT"
+        },
         "sabnzbd": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -3263,6 +4126,50 @@
             "test_status": "tested",
             "traefik_internal_port": null,
             "ui_port_variable": "SABNZBD_WEB_PORT"
+        },
+        "scrutiny": {
+            "component_version": "master-omnibus",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "WebUI for smartd S.M.A.R.T. monitoring and hard drive health inspection.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/AnalogJ/scrutiny",
+                "log_token_regex": null,
+                "onboarding_guide": "Scrutiny scans all local host drives and visualizes health metrics and failure risks.",
+                "token_label": null
+            },
+            "group": "System & Tools",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "ghcr.io/analogj/scrutiny",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:25:44.580491+00:00",
+            "last_tested_version": "master-omnibus",
+            "last_updated": "2026-09-12T07:25:44.580503+00:00",
+            "name": "Scrutiny",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/AnalogJ/scrutiny",
+            "protocol": "http",
+            "requires_root": true,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "smart",
+                "hdd",
+                "storage",
+                "monitoring",
+                "hardware"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "SCRUTINY_WEB_PORT"
         },
         "scrypted": {
             "component_version": "latest",
@@ -3391,6 +4298,50 @@
             "test_status": "tested",
             "ui_port_variable": "SEMAPHORE_PORT"
         },
+        "sftpgo": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Fully featured and highly configurable event-driven SFTP, FTP, and WebDAV server.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": "admin",
+                "doc_url": "https://sftpgo.com/",
+                "log_token_regex": null,
+                "onboarding_guide": "Create your administrator account on initial setup and configure SFTP/WebDAV shares.",
+                "token_label": null
+            },
+            "group": "Cloud & Storage",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "drakkan/sftpgo",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:19:13.293263+00:00",
+            "last_tested_version": "v2.7.5",
+            "last_updated": "2026-09-12T07:19:13.293274+00:00",
+            "name": "SFTPGo",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://sftpgo.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "sftp",
+                "ftp",
+                "webdav",
+                "storage",
+                "cloud"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "8080",
+            "ui_port_variable": "SFTPGO_WEB_PORT"
+        },
         "shlink": {
             "category": "Utilities",
             "conflicts_with": [],
@@ -3419,6 +4370,50 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "SHLINK_WEB_PORT"
+        },
+        "silverbullet": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Extensible, open-source personal knowledge management system written in clean TypeScript.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://silverbullet.md/",
+                "log_token_regex": null,
+                "onboarding_guide": "SilverBullet stores raw markdown files in your space directory. Ready to write.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "zefhemel/silverbullet",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:32:48.550541+00:00",
+            "last_tested_version": "2.10.0-runtime-api",
+            "last_updated": "2026-09-12T07:32:48.550551+00:00",
+            "name": "SilverBullet",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://silverbullet.md/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "notes",
+                "markdown",
+                "pkm",
+                "knowledge",
+                "wiki"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "3000",
+            "ui_port_variable": "SILVERBULLET_WEB_PORT"
         },
         "sonarr": {
             "component_version": "latest",
@@ -3648,6 +4643,50 @@
             "traefik_internal_port": 5380,
             "ui_port_variable": "DNS_WEB_CONSOLE_PORT"
         },
+        "teslamate": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Self-hosted data logger for your Tesla vehicle with detailed driving, battery, and charging analytics.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": null,
+                "doc_url": "https://docs.teslamate.org/",
+                "log_token_regex": null,
+                "onboarding_guide": "Generate and paste your Tesla API tokens in TeslaMate to begin telemetry collection.",
+                "token_label": null
+            },
+            "group": "Smart Home & IoT",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "teslamate/teslamate",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T08:03:24.903888+00:00",
+            "last_tested_version": "v4.2.0",
+            "last_updated": "2026-09-12T08:03:24.903899+00:00",
+            "name": "TeslaMate",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://docs.teslamate.org/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "tesla",
+                "automotive",
+                "telemetry",
+                "mqtt",
+                "iot"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "4000",
+            "ui_port_variable": "TESLAMATE_WEB_PORT"
+        },
         "traefik": {
             "component_version": "latest",
             "conflicts_with": [],
@@ -3696,6 +4735,49 @@
             "test_status": "tested",
             "traefik_internal_port": null,
             "ui_port_variable": "TRAEFIK_DASHBOARD_PORT"
+        },
+        "transmission": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Fast, lightweight, and reliable BitTorrent client with a clean web interface.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/linuxserver/docker-transmission",
+                "log_token_regex": null,
+                "onboarding_guide": "Access Transmission web UI on port 9091 to manage downloads and torrent transfers.",
+                "token_label": null
+            },
+            "group": "Media & Streaming",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "linuxserver/transmission",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:05:45.740518+00:00",
+            "last_tested_version": "4.1.3-r0-ls361",
+            "last_updated": "2026-09-12T07:05:45.740532+00:00",
+            "name": "Transmission",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://transmissionbt.com/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "torrent",
+                "bittorrent",
+                "downloads",
+                "media"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "9091",
+            "ui_port_variable": "TRANSMISSION_WEB_PORT"
         },
         "trilium": {
             "category": "Productivity",
@@ -3841,6 +4923,50 @@
             ],
             "test_status": "tested",
             "traefik_internal_port": null
+        },
+        "unpackerr": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Automatically extracts downloaded archives for Radarr, Sonarr, Lidarr, and torrent downloads.",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://unpackerr.zip/",
+                "log_token_regex": null,
+                "onboarding_guide": "Unpackerr runs in background and automatically extracts RAR and ZIP files from media downloads.",
+                "token_label": null
+            },
+            "group": "Media & Streaming",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": false,
+            "image_name": "golift/unpackerr",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:26:01.552858+00:00",
+            "last_tested_version": "latest",
+            "last_updated": "2026-09-12T07:26:01.552872+00:00",
+            "name": "Unpackerr",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://unpackerr.zip/",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "media",
+                "extraction",
+                "rar",
+                "zip",
+                "automation"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "5656",
+            "ui_port_variable": "UNPACKERR_METRICS_PORT"
         },
         "uptime-kuma": {
             "component_version": "latest",
@@ -4015,6 +5141,49 @@
             "requires_root": false,
             "test_status": "tested",
             "ui_port_variable": "WALLABAG_WEB_PORT"
+        },
+        "wallos": {
+            "component_version": "latest",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Open-source, self-hosted personal subscription tracker to monitor recurring payments and costs.",
+            "first_run_info": {
+                "auth_type": "wizard",
+                "default_username": null,
+                "doc_url": "https://github.com/ellite/Wallos",
+                "log_token_regex": null,
+                "onboarding_guide": "Open Wallos to create your admin account, currency preferences, and log recurring subscriptions.",
+                "token_label": null
+            },
+            "group": "Productivity",
+            "has_configuration": true,
+            "has_traefik_support": false,
+            "has_ui": true,
+            "image_name": "bellamy/wallos",
+            "intent_questions": [],
+            "last_tested": "2026-09-12T07:47:20.483533+00:00",
+            "last_tested_version": "5.7.1",
+            "last_updated": "2026-09-12T07:47:20.483544+00:00",
+            "name": "Wallos",
+            "package_id": null,
+            "podman_mode": "rootful",
+            "project_url": "https://github.com/ellite/Wallos",
+            "protocol": "http",
+            "requires_root": false,
+            "resource_profile": {
+                "cpu": "medium",
+                "ram": "medium",
+                "storage_type": "persistent"
+            },
+            "tags": [
+                "finance",
+                "subscriptions",
+                "budget",
+                "expenses"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": "80",
+            "ui_port_variable": "WALLOS_WEB_PORT"
         },
         "web-notepad": {
             "component_version": "latest",
