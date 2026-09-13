@@ -1,6 +1,11 @@
 # NjordDeploy Components Repository
 
-This repository serves as the central directory for all Docker Compose templates and metadata definitions used by the NjordDeploy platform.
+[![Catalog](https://img.shields.io/badge/Catalog-126%20Services-purple.svg)](components_metadata.json)
+[![Fleet Health](https://img.shields.io/badge/Fleet%20Health-9%2F9%20Stacks%20Passed-10b981.svg)](docs/test-reports/LATEST_RUN.md)
+
+This repository serves as the official, automated test-verified central directory for all Docker Compose templates and metadata definitions used by the [NjordDeploy](https://github.com/HenkVanHoek/njord-deploy) platform.
+
+> 🛡️ **Verified Quality & Test Reports:** View the latest Proxmox VE automated multi-environment integration test outcomes in the **[Fleet Health Dashboard](docs/test-reports/LATEST_RUN.md)**.
 
 ## Architecture & Workflow
 

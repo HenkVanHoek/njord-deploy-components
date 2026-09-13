@@ -1,6 +1,6 @@
 # status: "tested"
 # last_tested_version: "18.20.3"
-# platform_notes: "Tested on Proxmox LXC: docker (18.20.3, 2026-09-12), podman (1.22.19, 2026-09-05); Proxmox VM: docker (18.20.3, 2026-09-04), podman (1.22.19, 2026-09-05)."
+# platform_notes: "Tested on Proxmox LXC: docker (18.20.3, 2026-09-13), podman (18.20.3, 2026-09-13); Proxmox VM: docker (18.20.3, 2026-09-13), podman (18.20.3, 2026-09-13)."
 # breaking_changes: "None"
 services:
   uptime-kuma:

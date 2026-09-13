@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "v1.11.2-ls143"
-# platform_notes: "Tested on Proxmox LXC: docker (v1.11.2-ls143, 2026-09-12)."
+# last_tested_version: "v1.11.2-ls144"
+# platform_notes: "Tested on Proxmox LXC: docker (v1.11.2-ls143, 2026-09-12), podman (v1.11.2-ls144, 2026-09-12); Proxmox VM: docker (v1.11.2-ls144, 2026-09-12), podman (v1.11.2-ls144, 2026-09-13)."
 # breaking_changes: none
 services:
   pairdrop:

@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "latest"
-# platform_notes: "Tested on Proxmox LXC: docker (latest, 2026-09-12)."
+# last_tested_version: "v6.6.6"
+# platform_notes: "Tested on Proxmox LXC: docker (v6.6.6, 2026-09-12), podman (v6.6.6, 2026-09-12); Proxmox VM: docker (v6.6.6, 2026-09-12), podman (v6.6.6, 2026-09-12)."
 # breaking_changes: none
 services:
   firefly-iii:

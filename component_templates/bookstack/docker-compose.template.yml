@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "v26.05.4-ls283"
-# platform_notes: "Tested on Proxmox LXC: docker (v26.05.4-ls283, 2026-09-12)."
+# last_tested_version: "11.8.8-r0-ls230"
+# platform_notes: "Tested on Proxmox LXC: docker (v26.05.4-ls283, 2026-09-12), podman (11.8.8-r0-ls230, 2026-09-12); Proxmox VM: docker (v26.05.4-ls283, 2026-09-12), podman (11.8.8-r0-ls230, 2026-09-12)."
 # breaking_changes: none
 services:
   bookstack:
