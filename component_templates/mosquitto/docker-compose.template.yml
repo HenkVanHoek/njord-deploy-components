@@ -1,6 +1,6 @@
 # status: "tested"
 # last_tested_version: "2.1.2"
-# platform_notes: "Tested on Proxmox LXC: docker (2.1.2, 2026-09-12), podman (2.1.2, 2026-09-12); Proxmox VM: docker (2.1.2, 2026-09-13), podman (2.1.2, 2026-09-13)."
+# platform_notes: "Tested on Proxmox LXC: docker (2.1.2, 2026-09-14), podman (2.1.2, 2026-09-14); Proxmox VM: docker (2.1.2, 2026-09-14), podman (2.1.2, 2026-09-14)."
 # breaking_changes: none
 services:
   mosquitto:

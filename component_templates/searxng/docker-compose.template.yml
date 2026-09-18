@@ -1,6 +1,6 @@
 # status: "tested"
 # last_tested_version: "7.4.11"
-# platform_notes: "Tested on Proxmox LXC: docker (2026.9.12-d4f00d15d, 2026-09-12), podman (7.4.11, 2026-09-12); Proxmox VM: docker (2026.9.12-d4f00d15d, 2026-09-12), podman (7.4.11, 2026-09-13)."
+# platform_notes: "Tested on Proxmox LXC: docker (2026.9.13-d4ce87c23, 2026-09-14), podman (7.4.11, 2026-09-14); Proxmox VM: docker (2026.9.13-d4ce87c23, 2026-09-14), podman (7.4.11, 2026-09-14)."
 # breaking_changes: none
 services:
   searxng:

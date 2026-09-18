@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "16.15"
-# platform_notes: "Tested on Proxmox LXC: docker (latest, 2026-09-12), podman (16.15, 2026-09-12); Proxmox VM: docker (16.15, 2026-09-12), podman (16.15, 2026-09-13)."
+# last_tested_version: "1.19"
+# platform_notes: "Tested on Proxmox LXC: docker (1.19, 2026-09-14), podman (16.15, 2026-09-14); Proxmox VM: docker (16.15, 2026-09-14), podman (1.19, 2026-09-14)."
 # breaking_changes: none
 services:
   miniflux:

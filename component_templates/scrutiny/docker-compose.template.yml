@@ -1,6 +1,6 @@
 # status: "tested"
 # last_tested_version: "master-omnibus"
-# platform_notes: "Tested on Proxmox LXC: docker (master-omnibus, 2026-09-12), podman (master-omnibus, 2026-09-12); Proxmox VM: docker (master-omnibus, 2026-09-12), podman (master-omnibus, 2026-09-13)."
+# platform_notes: "Tested on Proxmox LXC: docker (master-omnibus, 2026-09-14), podman (master-omnibus, 2026-09-14); Proxmox VM: docker (master-omnibus, 2026-09-14), podman (master-omnibus, 2026-09-14)."
 # breaking_changes: none
 services:
   scrutiny:
