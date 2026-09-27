@@ -1,16 +1,16 @@
-# 🏗️ NjordDeploy: n8n
+# 🏗️ NjordDeploy: Immich Kiosk
 
 [![Proxmox Tested](https://img.shields.io/badge/Proxmox%20VE-Tested%20Passing-10b981.svg)](/docs/test-reports/LATEST_RUN.md)
 [![Architecture](https://img.shields.io/badge/Arch-ARM64%20%7C%20AMD64-blue.svg)]()
 [![Container Engine](https://img.shields.io/badge/Engine-Docker%20%7C%20Rootless%20Podman-orange.svg)]()
 [![Data Sovereignty](https://img.shields.io/badge/Data%20Sovereignty-100%25%20Self--Hosted-green.svg)]()
-[![Category](https://img.shields.io/badge/Category-Productivity-purple.svg)]()
+[![Category](https://img.shields.io/badge/Category-Media%20Servers-purple.svg)]()
 
-> Fair-code platform to build and deploy AI agents and workflows. Combine a visual canvas with custom code, run it self-hosted, and connect to 1500+ integrations.
+> Immich Kiosk is an ambient digital photo frame and slideshow client designed for smart TVs, tablets, and wall displays powered by your Immich server.
 
-- **Upstream Project:** [n8n](https://n8n.io/)
-- **Source Repository:** [github.com/n8n-io/n8n](https://github.com/n8n-io/n8n)
-- **Container Image:** `n8nio/n8n`
+- **Upstream Project:** [Immich Kiosk](https://github.com/damongolding/immich-kiosk)
+- **Source Repository:** [github.com/damongolding/immich-kiosk](https://github.com/damongolding/immich-kiosk)
+- **Container Image:** `ghcr.io/damongolding/immich-kiosk`
 
 ---
 
@@ -24,37 +24,31 @@
 - **Engine Freedom:** Tested and supported under standard **Docker Engine**
   as well as unprivileged rootless **Podman** environments.
 - **Resource Footprint:**
-  - **RAM Profile:** Medium
-  - **CPU Profile:** Medium
-  - **Storage:** Persistent
+  - **RAM Profile:** Low
+  - **CPU Profile:** Low
+  - **Storage:** Ephemeral
 > **Platform Verification Notes:**
-> Tested on Proxmox LXC: docker (2.38.7, 2026-09-14), podman (2.38.7, 2026-09-14); Proxmox VM: docker (2.38.7, 2026-09-14), podman (2.38.7, 2026-09-14).
+> Tested on Proxmox VM: docker (v3.2.2, 2026-09-27).
 ---
 
 ## 🚀 Quick Start (Standalone Docker Compose)
 
 ```yaml
 services:
-  n8n:
-    image: "n8nio/n8n:latest"
-    container_name: njorddeploy-n8n
+  immich-kiosk:
+    container_name: njorddeploy-immich-kiosk
+    image: ghcr.io/damongolding/immich-kiosk:0.44.1
+    tty: true
+    restart: unless-stopped
     ports:
-      - "5678:5678"
-    volumes:
-      - n8n_data:/home/node/.n8n
+      - "2284:3000"
     environment:
-      - "N8N_BASIC_AUTH_ACTIVE=true"
-      - "N8N_BASIC_AUTH_USER=njorduser"
-      - "N8N_BASIC_AUTH_PASSWORD=CHANGEMEPASSWORD123"
-      - "WEBHOOK_URL=http://your-n8n-domain.com"
-      - "GENERIC_TIMEZONE=UTC"
-      - "N8N_SECURE_COOKIE=false"
+      - "KIOSK_IMMICH_URL=http://njorddeploy-immich-server:2283"
+      - "KIOSK_IMMICH_API_KEY=initial_setup_token"
+      - "KIOSK_DURATION=60"
+      - "TZ=Europe/Amsterdam"
     networks:
       - njorddeploy_net
-
-volumes:
-  n8n_data:
-    name: njorddeploy-n8n-data
 
 networks:
   njorddeploy_net:
@@ -71,19 +65,18 @@ docker compose up -d
 
 | Variable | Default Value | Description |
 |---|---|---|
-| `N8N_WEB_PORT` | `5678` | The host port for accessing the n8n web interface. |
-| `N8N_BASIC_AUTH_USER` | `njorduser` | Username for n8n basic authentication. |
-| `N8N_BASIC_AUTH_PASSWORD` | `CHANGEMEPASSWORD123` | Password for n8n basic authentication. CHANGE THIS IMMEDIATELY! |
-| `N8N_WEBHOOK_URL` | `http://your-n8n-domain.com` | The external URL that n8n uses to generate webhook endpoints. This must be accessible from outside the container. For example: http://your-n8n-domain.com or https://your-n8n-domain.com. You can also use a local IP and port (e.g. http://192.168.1.100:5678) if you only use webhooks internally on your local network (LAN) and do not need external triggers from public internet services. |
-| `N8N_TIMEZONE` | `UTC` | Set the timezone for n8n. Example: Europe/Berlin or America/New_York. |
+| `IMMICH_KIOSK_PORT` | `2284` | Port to access the Immich Kiosk web interface. |
+| `KIOSK_IMMICH_URL` | `http://njorddeploy-immich-server:2283` | Internal or external URL to the Immich server (e.g. http://njorddeploy-immich-server:2283). |
+| `KIOSK_IMMICH_API_KEY` | `initial_setup_token` | API Key generated in Immich (Account Settings -> API Keys). |
+| `KIOSK_DURATION` | `60` | Duration in seconds each photo remains on screen. |
 
 ---
 
 ## 🔑 First-Run Onboarding Guide
 
-Open n8n web UI and complete the initial onboarding setup.
+Generate an API key in Immich (Account Settings -> API Keys) and provide it via KIOSK_IMMICH_API_KEY or in config/config.yaml to start displaying your albums.
 
-- **Upstream Setup Guide:** [https://n8n.io/](https://n8n.io/)
+- **Upstream Setup Guide:** [https://docs.immichkiosk.app/](https://docs.immichkiosk.app/)
 
 ---
 ## 🔌 Ecosystem Integration with NjordDeploy
@@ -117,4 +110,4 @@ View the latest multi-environment test results in the [Fleet Health Dashboard](/
 
 Don't want to manage passwords, volume permissions, SSL certificates, and network bindings manually?
 
-Deploy **n8n** with 1-click using the **[NjordDeploy Configurator](https://github.com/HenkVanHoek/njord-deploy)**.
+Deploy **Immich Kiosk** with 1-click using the **[NjordDeploy Configurator](https://github.com/HenkVanHoek/njord-deploy)**.

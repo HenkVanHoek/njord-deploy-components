@@ -9,7 +9,7 @@
 > Minimalist, fast, and opinionated RSS feed reader written in Go.
 
 - **Upstream Project:** [Miniflux](https://miniflux.app/)
-- **Source Repository:** [github.com/miniflux/miniflux](https://github.com/miniflux/miniflux)
+- **Source Repository:** [github.com/miniflux/v2](https://github.com/miniflux/v2)
 - **Container Image:** `postgres:16-alpine`
 
 ---
