@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "0.12.2"
-# platform_notes: "Tested on Proxmox LXC: docker (0.12.2, 2026-10-15), podman (main, 2026-09-14); Proxmox VM: docker (main, 2026-09-14), podman (main, 2026-09-14)."
+# last_tested_version: "0.12.3"
+# platform_notes: "Tested on Proxmox LXC: docker (0.12.3, 2026-10-17), podman (main, 2026-09-14); Proxmox VM: docker (main, 2026-09-14), podman (main, 2026-09-14)."
 # breaking_changes: "None"
 services:
   open-webui:
