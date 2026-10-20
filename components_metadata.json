@@ -86,6 +86,7 @@
             "semaphore",
             "shlink",
             "sonarr",
+            "speaches",
             "speedtest-tracker",
             "stirling-pdf",
             "syncthing",
@@ -340,7 +341,7 @@
                 "pi-hole"
             ],
             "depends_on": [],
-            "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
+            "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a \u201cblack hole\u201d, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
             "docker_service_name": "adguardhome",
             "first_run_info": {
                 "auth_type": "wizard",
@@ -7026,6 +7027,76 @@
                 "rss_feed": "https://github.com/Sonarr/Sonarr/releases.atom"
             }
         },
+        "speaches": {
+            "component_version": "latest-cpu",
+            "conflicts_with": [],
+            "depends_on": [],
+            "description": "Speaches is an open-source, OpenAI-compatible Speech-to-Text (faster-whisper) and Text-to-Speech (Kokoro/Piper) server supporting GPU acceleration.",
+            "docker_service_name": "speaches",
+            "first_run_info": {
+                "auth_type": "none",
+                "default_username": null,
+                "doc_url": "https://github.com/speaches-ai/speaches",
+                "log_token_regex": null,
+                "onboarding_guide": "Speaches REST API and OpenAPI docs are available at /docs. Configure Open WebUI audio transcription settings to point to http://speaches:8000/v1.",
+                "token_label": null
+            },
+            "group": "AI & LLM Services",
+            "has_configuration": true,
+            "has_traefik_support": true,
+            "has_ui": true,
+            "image_name": "ghcr.io/speaches-ai/speaches",
+            "last_tested": "2026-10-20T11:57:45.078727+00:00",
+            "last_tested_version": "24.04",
+            "last_updated": "2026-10-20T11:57:45.078740+00:00",
+            "name": "Speaches Speech-to-Text & Audio",
+            "package_id": "open-webui-ollama",
+            "project_url": "https://github.com/speaches-ai/speaches",
+            "protocol": "http",
+            "release_track": {
+                "lts_identifier": null,
+                "otap_role": "production",
+                "track": "standard"
+            },
+            "staging": {
+                "candidate_version": null,
+                "entered_staging_at": null,
+                "grace_days": 14,
+                "status": "idle",
+                "test_result": "Passed Proxmox VM PODMAN test (24.04)"
+            },
+            "supported_matrix": {
+                "engines": [
+                    "docker",
+                    "podman"
+                ],
+                "modes": [
+                    "lxc",
+                    "vm"
+                ],
+                "notes": "Supports CPU and NVIDIA GPU CUDA acceleration (RTX 3060 / Pascal+)."
+            },
+            "tags": [
+                "AI",
+                "Audio",
+                "Speech-to-Text",
+                "Whisper",
+                "TTS",
+                "OpenAI-Compatible"
+            ],
+            "test_status": "tested",
+            "traefik_internal_port": 8000,
+            "ui_port_variable": "SPEACHES_PORT",
+            "upstream": {
+                "deprecation_note": null,
+                "github_repo": "speaches-ai/speaches",
+                "is_deprecated": false,
+                "last_upstream_check": "2026-10-20T11:40:16.036179+00:00",
+                "latest_upstream_version": "0.8.3",
+                "registry_type": "ghcr",
+                "rss_feed": "https://github.com/speaches-ai/speaches/releases.atom"
+            }
+        },
         "speedtest-tracker": {
             "category": "Utilities",
             "conflicts_with": [],
@@ -8438,7 +8509,8 @@
             "components": [
                 "ollama",
                 "open-webui",
-                "litellm"
+                "litellm",
+                "speaches"
             ],
             "description": "Integrated sovereign AI chatbot and inference platform combining Open WebUI with the local Ollama LLM engine and LiteLLM unified gateway.",
             "icon": "fa-solid fa-robot",
