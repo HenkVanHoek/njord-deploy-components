@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "11.3.5"
-# platform_notes: "Tested on Proxmox LXC: docker (11.3.5, 2026-10-25), podman (v11.0.1, 2026-09-14); Proxmox VM: docker (v11.0.1, 2026-09-14), podman (v11.0.1, 2026-09-14)."
+# last_tested_version: "11.4.0"
+# platform_notes: "Tested on Proxmox LXC: docker (11.4.0, 2026-10-30), podman (v11.0.1, 2026-09-14); Proxmox VM: docker (v11.0.1, 2026-09-14), podman (v11.0.1, 2026-09-14)."
 # breaking_changes: none
 services:
   dozzle:
