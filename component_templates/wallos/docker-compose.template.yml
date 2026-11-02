@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "5.10.3"
-# platform_notes: "Tested on Proxmox LXC: docker (5.10.3, 2026-11-01), podman (5.7.1, 2026-09-14); Proxmox VM: docker (5.7.1, 2026-09-14), podman (5.7.1, 2026-09-14)."
+# last_tested_version: "5.10.4"
+# platform_notes: "Tested on Proxmox LXC: docker (5.10.4, 2026-11-02), podman (5.7.1, 2026-09-14); Proxmox VM: docker (5.7.1, 2026-09-14), podman (5.7.1, 2026-09-14)."
 # breaking_changes: none
 services:
   wallos:
