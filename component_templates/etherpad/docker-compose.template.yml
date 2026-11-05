@@ -1,6 +1,6 @@
 # status: "tested"
-# last_tested_version: "3.3.13"
-# platform_notes: "Tested on Proxmox LXC: docker (3.3.13, 2026-11-03), podman (3.3.3, 2026-09-14); Proxmox VM: docker (3.3.3, 2026-09-14), podman (3.3.3, 2026-09-14)."
+# last_tested_version: "3.3.15"
+# platform_notes: "Tested on Proxmox LXC: docker (3.3.15, 2026-11-05), podman (3.3.3, 2026-09-14); Proxmox VM: docker (3.3.3, 2026-09-14), podman (3.3.3, 2026-09-14)."
 # breaking_changes: none
 services:
   etherpad:
