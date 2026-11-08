@@ -6749,9 +6749,9 @@
             "has_configuration": true,
             "has_ui": true,
             "image_name": "semaphoreui/semaphore",
-            "last_tested": "2026-11-03T06:58:05.419392+00:00",
-            "last_tested_version": "2.19.18",
-            "last_updated": "2026-11-03T06:58:01.176874+00:00",
+            "last_tested": "2026-11-08T07:03:15.083977+00:00",
+            "last_tested_version": "2.19.19",
+            "last_updated": "2026-11-08T07:03:10.808096+00:00",
             "name": "Semaphore UI",
             "project_url": "https://semaphoreui.com/",
             "protocol": "http",
@@ -6769,13 +6769,13 @@
                 "storage_type": "ssd"
             },
             "staging": {
-                "candidate_version": "2.19.19",
-                "entered_staging_at": "2026-11-08T06:22:46.842079+00:00",
+                "candidate_version": null,
+                "entered_staging_at": null,
                 "grace_days": 14,
-                "last_test_error": "Deployment failed: Could not find the requested service docker: host",
-                "last_test_timestamp": "2026-11-08T06:31:48.187014+00:00",
-                "status": "needs_review",
-                "test_result": "Passed Proxmox LXC DOCKER test (2.19.18)"
+                "last_test_error": null,
+                "last_test_timestamp": null,
+                "status": "idle",
+                "test_result": "Passed Proxmox LXC DOCKER test (2.19.19)"
             },
             "tags": [
                 "ansible",
