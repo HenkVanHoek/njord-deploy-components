@@ -28,7 +28,7 @@
   - **CPU Profile:** 500m
   - **Storage:** Ssd
 > **Platform Verification Notes:**
-> Tested on Proxmox LXC: docker (2.19.21, 2026-11-10), podman (v2.19.14, 2026-09-14); Proxmox VM: docker (v2.19.14, 2026-09-14), podman (v2.19.14, 2026-09-14).
+> Tested on Proxmox LXC: docker (2.20.23, 2026-11-11), podman (v2.19.14, 2026-09-14); Proxmox VM: docker (v2.19.14, 2026-09-14), podman (v2.19.14, 2026-09-14).
 ---
 
 ## 🚀 Quick Start (Standalone Docker Compose)
