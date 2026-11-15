@@ -9,7 +9,7 @@
 > A lightweight, static application dashboard configured via YAML, designed for fast landing-page access to all your homelab services.
 
 - **Upstream Project:** [Homer](https://github.com/bastienwirtz/homer)
-- **Source Repository:** [github.com/bastienwirtz/homer](https://github.com/bastienwirtz/homer)
+- **Source Repository:** [github.com/homer-dashboard/homer](https://github.com/homer-dashboard/homer)
 - **Container Image:** `b4bz/homer`
 
 ---
@@ -28,7 +28,7 @@
   - **CPU Profile:** Medium
   - **Storage:** Persistent
 > **Platform Verification Notes:**
-> Tested on Proxmox LXC: docker (26.11.2, 2026-11-11), podman (v26.08.3, 2026-09-14); Proxmox VM: docker (v26.08.3, 2026-09-14), podman (v26.08.3, 2026-09-14).
+> Tested on Proxmox LXC: docker (26.11.3, 2026-11-15), podman (v26.08.3, 2026-09-14); Proxmox VM: docker (v26.08.3, 2026-09-14), podman (v26.08.3, 2026-09-14).
 ---
 
 ## 🚀 Quick Start (Standalone Docker Compose)
