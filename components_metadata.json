@@ -346,7 +346,7 @@
                 "pi-hole"
             ],
             "depends_on": [],
-            "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a “black hole”, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
+            "description": "AdGuard Home is a free and open-source network-wide software for blocking ads and tracking. It operates as a DNS server that re-routes tracking domains to a \u201cblack hole\u201d, thus preventing your devices from connecting to those servers. It provides a web UI for configuration and monitoring. AdGuard Home is capable of running without root privileges, but for persistent volume access, the container is set to run as root (user: 0:0).",
             "docker_service_name": "adguardhome",
             "first_run_info": {
                 "auth_type": "wizard",
@@ -5645,9 +5645,9 @@
             "has_traefik_support": true,
             "has_ui": true,
             "image_name": "ghcr.io/paperless-ngx/paperless-ngx",
-            "last_tested": "2026-11-05T13:36:43.466890+00:00",
-            "last_tested_version": "3.4.2",
-            "last_updated": "2026-11-05T13:36:39.207656+00:00",
+            "last_tested": "2026-11-18T06:58:27.971053+00:00",
+            "last_tested_version": "3.5.1",
+            "last_updated": "2026-11-18T06:58:27.971065+00:00",
             "name": "Paperless-ngx",
             "protocol": "http",
             "release_track": {
@@ -5656,13 +5656,13 @@
                 "track": "standard"
             },
             "staging": {
-                "candidate_version": "3.5.1",
-                "entered_staging_at": "2026-11-18T06:15:01.696011+00:00",
+                "candidate_version": null,
+                "entered_staging_at": null,
                 "grace_days": 14,
                 "last_test_error": "Running containers:\nnjorddeploy-paperless-ngx (Up 2 seconds (health: starting))\r\nnjorddeploy-paperless-db (Up 2 seconds)\r\nnjorddeploy-paperless-broker (Up 2 seconds)\nHTTP Probe: 400 (http://192.168.178.199:8000) - Response: <!doctype html> <html lang=\"en\"> <head>   <title>Bad Request (400)</title> <",
                 "last_test_timestamp": "2026-11-18T06:34:22.810687+00:00",
-                "status": "needs_review",
-                "test_result": "Passed Proxmox LXC DOCKER test (3.4.2)"
+                "status": "idle",
+                "test_result": "Passed Proxmox LXC DOCKER test (3.5.1)"
             },
             "supported_matrix": {
                 "engines": [

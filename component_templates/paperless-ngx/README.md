@@ -27,7 +27,7 @@
   - **CPU Profile:** Medium
   - **Storage:** Persistent
 > **Platform Verification Notes:**
-> Tested on Proxmox LXC: docker (3.4.2, 2026-11-05), podman (7.4.11, 2026-09-14); Proxmox VM: docker (3.1.3, 2026-09-14), podman (7.4.11, 2026-09-14).
+> Tested on Proxmox LXC: docker (3.5.1, 2026-11-18), podman (7.4.11, 2026-09-14); Proxmox VM: docker (3.1.3, 2026-09-14), podman (7.4.11, 2026-09-14).
 ---
 
 ## 🚀 Quick Start (Standalone Docker Compose)
@@ -47,6 +47,7 @@ services:
       - "PAPERLESS_DBPASS=jp2ioLkJhGfDsAqWe123456_pgpass"
       - "PAPERLESS_SECRET_KEY=PasW0rD1nC0mP1eX_K3yS3cR3t_L0nG_R@nD0m_S7r!nG_F0r_P@p3rL3sS"
       - "PAPERLESS_URL=http://localhost:8000"
+      - "PAPERLESS_ALLOWED_HOSTS=*"
       - "USERMAP_UID=0"
       - "USERMAP_GID=0"
       - "TZ=Etc/UTC"
@@ -100,6 +101,8 @@ docker compose up -d
 | Variable | Default Value | Description |
 |---|---|---|
 | `PAPERLESS_WEB_PORT` | `8000` | The host port for accessing the Paperless-ngx web interface. |
+| `PAPERLESS_URL` | `http://localhost:8000` | The public URL used to access Paperless-ngx (e.g., https://paperless.example.com). |
+| `PAPERLESS_ALLOWED_HOSTS` | `*` | Comma-separated list of allowed hostnames or IP addresses for Django ALLOWED_HOSTS (use '*' to allow all hosts, or specify your domain/IP). |
 | `PAPERLESS_DBNAME` | `paperless` | The name of the PostgreSQL database used by Paperless-ngx. |
 | `PAPERLESS_DBUSER` | `paperless` | The username for accessing the PostgreSQL database. |
 | `PAPERLESS_DBPASS` | `jp2ioLkJhGfDsAqWe123456_pgpass` | The password for the PostgreSQL database user. |
