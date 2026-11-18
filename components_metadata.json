@@ -5659,7 +5659,7 @@
                 "candidate_version": null,
                 "entered_staging_at": null,
                 "grace_days": 14,
-                "last_test_error": "Running containers:\nnjorddeploy-paperless-ngx (Up 2 seconds (health: starting))\r\nnjorddeploy-paperless-db (Up 2 seconds)\r\nnjorddeploy-paperless-broker (Up 2 seconds)\nHTTP Probe: 400 (http://192.168.178.199:8000) - Response: <!doctype html> <html lang=\"en\"> <head>   <title>Bad Request (400)</title> <",
+                "last_test_error": null,
                 "last_test_timestamp": "2026-11-18T06:34:22.810687+00:00",
                 "status": "idle",
                 "test_result": "Passed Proxmox LXC DOCKER test (3.5.1)"
