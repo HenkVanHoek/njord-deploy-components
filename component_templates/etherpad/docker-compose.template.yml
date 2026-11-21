@@ -1,5 +1,5 @@
 # status: "tested"
-# last_tested_version: "3.3.19"
+# last_tested_version: "3.3.21"
 # platform_notes: "Tested on Proxmox LXC: docker (3.3.19, 2026-11-18), podman (3.3.3, 2026-09-14); Proxmox VM: docker (3.3.3, 2026-09-14), podman (3.3.3, 2026-09-14)."
 # breaking_changes: none
 services:
