@@ -188,6 +188,7 @@ architecture details, default ports, volume specifications, and quick start guid
 | `n8n` | Fair-code platform to build and deploy AI agents and workflows. Combine a visual canvas with custom code, r... | [n8n](https://n8n.io/) | [View README](component_templates/n8n/README.md) |
 | `nextcloud` | A comprehensive self-hosted productivity and collaboration suite offering secure file storage, online docum... | [Nextcloud](https://nextcloud.com/) | [View README](component_templates/nextcloud/README.md) |
 | `paperless-ngx` | A document management system that transforms your physical documents into a searchable online archive so yo... | Paperless-ngx | [View README](component_templates/paperless-ngx/README.md) |
+| `particify` | Open-source audience response system (ARSnova) and privacy-friendly Mentimeter / Slido alternative for live... | [Particify](https://particify.de) | [View README](component_templates/particify/README.md) |
 | `silverbullet` | Extensible, open-source personal knowledge management system written in clean TypeScript. | [SilverBullet](https://silverbullet.md/) | [View README](component_templates/silverbullet/README.md) |
 | `stirling-pdf` | A powerful, open-source PDF editing platform for editing, signing, redacting, converting, and automating PDFs. | [Stirling PDF](https://stirlingpdf.com/) | [View README](component_templates/stirling-pdf/README.md) |
 | `trilium` | Hierarchical note taking application with focus on building large personal knowledge bases. | Trilium Next | [View README](component_templates/trilium/README.md) |
